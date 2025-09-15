@@ -22,7 +22,7 @@ export default function Verify() {
     
     if(!code) return;
     
-    const profileUrl = axios.get(`http://localhost:4580/api/v2/auth/linkedin/${code}`)
+    const profileUrl = axios.get(`https://lasric-server-jjqhn.ondigitalocean.app/api/v2/auth/linkedin/${code}`)
     profileUrl
     .then(e => {
       
