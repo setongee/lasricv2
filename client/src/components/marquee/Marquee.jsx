@@ -24,7 +24,7 @@ export default function Marquee() {
             <div className="card__text ">
 
                 <p> Tolulope Olukokun </p>
-                <span> CEO, ThinkBikes </span>
+                <span> ThinkBikes </span>
 
             </div>
 
@@ -37,7 +37,7 @@ export default function Marquee() {
             <div className="card__text ">
 
                 <p> Ibilola Amao </p>
-                <span> CEO, Lonadek </span>
+                <span> Lonadek </span>
 
             </div>
 
@@ -50,7 +50,7 @@ export default function Marquee() {
             <div className="card__text ">
 
                 <p> Yusuf Bilesami </p>
-                <span> CEO, Shifa Technologies </span>
+                <span> Shifa Technologies </span>
 
             </div>
 
@@ -63,7 +63,7 @@ export default function Marquee() {
             <div className="card__text ">
 
                 <p> Aisha Raheem </p>
-                <span> CEO, Farmz2u </span>
+                <span> Farmz2u </span>
 
             </div>
 
@@ -77,7 +77,7 @@ export default function Marquee() {
             <div className="card__text ">
 
                 <p> Luther Lawoyin </p>
-                <span> CEO, Pricepally </span>
+                <span> Pricepally </span>
                 
             </div>
 
@@ -90,7 +90,7 @@ export default function Marquee() {
             <div className="card__text ">
 
                 <p> Cynthia Asije </p>
-                <span> CEO, Adire Lounge </span>
+                <span> Adire Lounge </span>
                 
             </div>
 
@@ -103,7 +103,7 @@ export default function Marquee() {
             <div className="card__text ">
 
                 <p> Micheal Osumune</p>
-                <span> CEO, Moon Innovations </span>
+                <span> Moon Innovations </span>
 
             </div>
 
@@ -116,7 +116,7 @@ export default function Marquee() {
             <div className="card__text ">
 
                 <p> Titilope Adewusi </p>
-                <span> CEO, 9ijaKids </span>
+                <span> 9ijaKids </span>
                 
             </div>
 
