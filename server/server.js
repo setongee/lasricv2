@@ -6,8 +6,12 @@ import auth from "./routes/linkedinAuth.route.js";
 import ping from "./routes/profile.route.js";
 dotenv.config()
 
-const port = 4580;
+const PORT = process.env.PORT || 8080;
 const app = express();
+
+app.get("/", (req, res) => {
+  res.send("Server is healthy 🚀");
+});;
 
 const allowedOrigins = [
   "http://localhost:3000",
@@ -49,6 +53,6 @@ app.use(`${base_url}/auth`, auth);
 app.use(`${base_url}/ping`, ping);
 
 
-app.listen(port, () => {
-  console.log(`Server is live on port - ${port}`);
+app.listen(PORT, () => {
+  console.log(`Server is live on port - ${PORT}`);
 });
