@@ -1,0 +1,555 @@
+.about{
+    margin-top: 200px;
+
+    .head-area{
+        margin: 0 auto;
+        font-size: 40px;
+        line-height: 55px;
+        margin-bottom: 50px;
+        color: #150033;
+        font-weight: 600;
+        max-width: 1000px;
+        text-align: center;
+
+        span{
+
+            text-decoration: underline;
+
+        }
+    }
+
+    .subhead{
+
+        margin: 0 auto;
+        font-size: 18px;
+        line-height: 30px;
+        color: #999;
+        width: 500px;
+        text-align: center;
+    }
+
+    .vision-mission{
+        display: flex;
+        margin-top: 100px;
+        justify-content: center;
+
+        .vision, .mission{
+            
+            width: 550px;
+            height: 500px;
+            background-color: #eee;
+            overflow: hidden;
+            position: relative;
+            border-radius: 10px;
+
+            .photo--vm{
+                height: 100%;
+                width: 100%;
+                
+                img{
+                    width: 100%;
+                    height: 100%;
+                    object-fit: cover;
+                }
+            }
+
+            .text__point{
+                background-color: rgba($color: #fff, $alpha: .9);
+                width: 85%;
+                padding: 30px;
+                border-radius: 10px;
+                position: absolute;
+                bottom: 0;
+                left: 50%;
+                translate: -50%;
+                margin-bottom: 38px;
+            }
+
+            .h1{
+                font-weight: bold;
+                font-size: 18px;
+            }
+
+
+            .divider{
+                
+                margin: 20px 0;
+                width: 100%;
+                height: 1px;
+                background-color: #d3d3d3;
+
+            }
+
+            p{
+                line-height: 26px;
+                color: #333;
+            }
+        }
+
+        .vision{
+            margin-right: 40px;
+        }
+    }
+
+    .line-tap{
+
+        width: 100%;
+        height: 1px;
+        background-color: whitesmoke;
+        margin-bottom: 50px;
+        display: flex;
+        align-items: center;
+        display: none;
+
+        .pint{
+            background-color: #F88B2D;
+            width: 80px;
+            height: 2px;
+            border-radius: 100px;
+
+            &:last-child{
+                margin-left: calc(40% - 40px);
+            }
+        }
+
+    }
+
+    .headInterest{
+
+        padding: 100px 0;
+
+        h1{
+            text-align: center;
+            font-size: 42px;
+            font-family: 'Code Next';
+        }
+        
+        .areas{
+            margin-top: 20px;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            justify-content: center;
+        
+        }
+
+        .area{
+
+            background-color: #FFF;
+            width: 32%;
+            position: relative;
+            padding: 30px;
+            box-shadow: 5px 10px 20px rgba($color: #000000, $alpha: .04);
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            // background-color: #FBFBFB;
+
+            p{
+                font-size: 15px;
+                width: 75%;
+                margin-top: 0px;
+                line-height: 25px;
+                color: #555;
+            }
+
+            .heading{
+                font-size: 17px;
+                font-weight: 600;
+            }
+
+            .appIcon{
+
+                height: 65px;
+                width: 65px;
+                border-radius: 100%;
+                position: absolute;
+                right: 0;
+                top: 0;
+                margin: 20px;
+                background-color: #fff;
+
+                img{
+                    width: 100%;
+                    height: 100%;
+                    object-fit: contain;
+                }
+            }
+
+        }
+
+    }
+
+    .whygive{
+        
+        h1{
+            text-align: center;
+            font-size: 42px;
+            font-family: 'Code Next';
+            margin-bottom: 30px;
+        }
+
+        .reason{
+
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+
+            .content{
+
+                width: 48%;
+
+                .heading{
+                    font-family: 'Code Next';
+                    font-size: 40px;
+                    margin-bottom: 20px;
+                    line-height: 45px;
+                }
+
+                p{
+                    line-height: 30px;
+                }
+
+            }
+
+        }
+
+    }
+
+    .leadLink{
+
+        text-align: center;
+        width: max-content;
+        margin: 0 auto;
+        margin-top: 70px;
+        margin-bottom: 70px;
+
+        a{
+            display: flex;
+            align-items: center;
+            font-size: 16px;
+            color: green;
+            text-decoration: underline;
+            font-weight: 500;
+            
+            .icon{
+                font-size: 12px;
+                width: 30px;
+                height: 30px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+            }
+        }
+    }
+}
+
+
+@media(max-width : 1100px) {
+
+    .about{
+        margin-top: 150px;
+
+        .headInterest{
+            .areas{
+                margin-top: 20px;
+                display: flex;
+                flex-wrap: wrap;
+                gap: 20px;
+                justify-content: center;
+            
+            }
+    
+            .area{
+    
+                background-color: #FFF;
+                width: 31.3%;
+                position: relative;
+                padding: 25px;
+                box-shadow: 5px 10px 20px rgba($color: #000000, $alpha: .04);
+                display: flex;
+                flex-direction: column;
+                gap: 20px;
+                // background-color: #FBFBFB;
+    
+                p{
+                    font-size: 15px;
+                    width: 100%;
+                    margin-top: 0px;
+                    line-height: 24px;
+                    color: #555;
+                    order: 3;
+                }
+    
+                .heading{
+                    font-size: 17px;
+                    font-weight: 600;
+                    order: 2;
+                }
+    
+                .appIcon{
+    
+                    height: 60px;
+                    width: 60px;
+                    border-radius: 100%;
+                    position: relative;
+                    right: 0;
+                    top: 0;
+                    margin: 0px;
+                    background-color: #fff;
+                    order: 1;
+    
+                    img{
+                        width: 100%;
+                        height: 100%;
+                        object-fit: contain;
+                    }
+                }
+            }
+        }
+    }
+
+}
+
+@media(max-width : 768px) {
+
+    .about{
+        margin-top: 140px;
+
+        .head-area{
+            font-size: 30px;
+            line-height: 40px;
+            margin-bottom: 30px;
+        }
+
+        .subhead{
+            font-size: 16px;
+            line-height: 25px;
+        }
+
+        .vision-mission{
+
+            margin-top: 60px;
+            justify-content: space-between;
+
+            
+            .vision{
+                width: calc(50% - 10px);
+                margin: 0;
+                height: 400px;
+
+                .text__point{
+                    width: 90%;
+                    margin-bottom: 15px;
+                    padding: 20px;
+                }
+
+                .h1{
+                    font-size: 16px;
+                }
+            }
+
+        }
+
+        .headInterest{
+            padding: 50px 0;
+
+            .areas{
+                margin-top: 20px;
+                display: flex;
+                flex-wrap: wrap;
+                gap: 20px;
+                justify-content: center;
+            
+            }
+    
+            .area{
+    
+                background-color: #FFF;
+                width: calc(50% - 20px);
+                position: relative;
+                padding: 25px;
+                box-shadow: 5px 10px 20px rgba($color: #000000, $alpha: .04);
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                gap: 20px;
+                // background-color: #FBFBFB;
+    
+                p{
+                    font-size: 14px;
+                    width: 100%;
+                    margin-top: 0px;
+                    line-height: 22px;
+                    color: #555;
+                    order: 3;
+                    text-align: center;
+                }
+    
+                .heading{
+                    font-size: 17px;
+                    font-weight: 600;
+                    order: 2;
+                    text-align: center;
+                }
+    
+                .appIcon{
+    
+                    height: 60px;
+                    width: 60px;
+                    border-radius: 100%;
+                    position: relative;
+                    right: 0;
+                    top: 0;
+                    margin: 0px;
+                    background-color: #fff;
+                    order: 1;
+    
+                    img{
+                        width: 100%;
+                        height: 100%;
+                        object-fit: contain;
+                    }
+                }
+            }
+
+        }
+    }
+
+}
+
+@media(max-width : 600px) {
+
+    .about{
+        margin-top: 140px;
+
+        .head-area{
+            font-size: 30px;
+            line-height: 40px;
+            margin-bottom: 30px;
+        }
+
+        .subhead{
+            font-size: 16px;
+            line-height: 25px;
+        }
+
+        .vision-mission{
+
+            margin-top: 60px;
+            justify-content: space-between;
+            flex-direction: column;
+            gap: 20px;
+
+            
+            .vision{
+                width: 100%;
+                margin: 0;
+                height: 300px;
+
+                .text__point{
+                    width: 90%;
+                    margin-bottom: 15px;
+                    padding: 20px;
+                }
+
+                .h1{
+                    font-size: 16px;
+                }
+            }
+
+        }
+    }
+
+}
+
+@media(max-width : 500px) {
+
+    .about{
+        margin-top: 140px;
+
+        .head-area{
+            font-size: 30px;
+            line-height: 40px;
+            margin-bottom: 30px;
+            text-align: left;
+        }
+
+        .subhead{
+            font-size: 16px;
+            line-height: 25px;
+            width: 100%;
+            text-align: left;
+        }
+
+        .vision-mission{
+            margin-top: 50px;
+        }
+
+        .headInterest{
+            padding: 30px 0;
+
+            .areas{
+                margin-top: 20px;
+                display: flex;
+                flex-wrap: wrap;
+                gap: 20px;
+                justify-content: center;
+                align-items: center;
+            
+            }
+    
+            .area{
+    
+                background-color: #FFF;
+                width: 80%;
+                position: relative;
+                padding: 25px;
+                box-shadow: 5px 10px 20px rgba($color: #000000, $alpha: .04);
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                gap: 20px;
+                // background-color: #FBFBFB;
+    
+                p{
+                    font-size: 14px;
+                    width: 100%;
+                    margin-top: 0px;
+                    line-height: 22px;
+                    color: #555;
+                    order: 3;
+                    text-align: center;
+                }
+    
+                .heading{
+                    font-size: 17px;
+                    font-weight: 600;
+                    order: 2;
+                    text-align: center;
+                }
+    
+                .appIcon{
+    
+                    height: 60px;
+                    width: 60px;
+                    border-radius: 100%;
+                    position: relative;
+                    right: 0;
+                    top: 0;
+                    margin: 0px;
+                    background-color: #fff;
+                    order: 1;
+    
+                    img{
+                        width: 100%;
+                        height: 100%;
+                        object-fit: contain;
+                    }
+                }
+            }
+        }
+    }
+
+}
+

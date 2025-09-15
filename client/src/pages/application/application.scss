@@ -1,0 +1,500 @@
+
+.wrapper {
+    width: 100%;
+    overflow: hidden;
+    display: flex;
+    padding: 150px 0;
+}
+
+.notice {
+    display : block;
+    margin-left: 3px;
+    color: crimson;
+    font-weight: bold;
+
+    &.opt{
+        display: none;
+    }
+}
+
+label{
+
+    display: flex;
+    align-items: center;
+
+}
+
+
+.title-bar, .mints {
+    display: flex;
+    position: fixed;
+    width: 22%;
+    background-color: #fff;
+    left: 12%;
+    z-index: 99;
+    top: 150px;
+    height: max-content;
+    flex-direction: column;
+    box-shadow: 3px 10px 20px rgba($color: #000000, $alpha: 0.03);
+
+    .tabnine{
+        padding: 20px;
+        background-color: #fff;
+        border-bottom: 1px solid rgb(231, 231, 231);
+        font-size: 14px;
+        cursor: pointer;
+        transition: all .3s ease-in-out;
+        display: flex;
+        align-items: center;
+        color: #333;
+        position: relative;
+
+        
+
+        .icon-tab, .complete{
+            height: 20px;
+            width: 20px;
+            margin-right: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            i{
+                margin-top: 3px;
+            }
+        }
+
+        .complete{
+            position: absolute;
+            right: 10px;
+            background-color: #43D57F;
+            padding: 10px;
+            border-radius: 100%;
+            color: #fff;
+        }
+
+        &:hover{
+            background-color: #f9f9f9;
+            padding-left: 25px;
+        }
+
+        &.active{
+            background-color: #f9f9f9;
+            color: #000;
+            font-weight: 500;
+            border-right: 3px solid orange;
+        }
+    }
+}
+
+
+.loader{
+    background-color: rgba($color: #fff, $alpha: 0.7);
+    height: 100vh;
+    color: 000;
+    position: fixed;
+    width: 53%;
+    padding: 100px 30px;
+    margin-left: calc(32% + 40px);
+    z-index: 999;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+}
+
+.header-pang{
+    padding-left: 20px;
+}
+
+.title-bar .nav p {
+
+    font-size: 14px;
+    font-weight: 700;
+
+}
+
+.submitApplication{
+    background-color: #111;
+    margin: 20px 20px;
+    padding: 20px;
+    text-align: center;
+    font-size: 14px;
+    font-family: "Poppins";
+    font-weight: 700;
+    color: #fff;
+    border-radius: 100px;
+    cursor: pointer;
+}
+
+.body-section {
+    width: 100%;
+}
+
+.save-draft button {
+    background-color: #333;
+    padding: 15px 20px;
+    outline-color: none;
+    border: none;
+    font-weight: 700;
+    border-radius: 100px;
+    color: #fff;
+    cursor: pointer;
+    font-size: 12px;
+
+    &:hover{
+        background-color: #111;
+    }
+}
+.save-draft {
+    font-size: 14px;
+    margin-top: 25px;
+    padding: 0 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.lasric-apply-form {
+
+    width: 53%;
+    padding:10px 30px;
+    margin-left: calc(32% + 40px);
+    background-color: #fff;
+    box-shadow: 3px 10px 20px rgba($color: #000000, $alpha: 0.03);
+
+}
+
+table {
+    width: 100%;
+}
+
+table input {
+    width: 100%;
+    margin: 0 !important;
+}
+
+.addedTR{
+    background-color: #43D57F;
+    width: 100% !important;
+}
+
+table th {
+    font-size: 14px;
+    padding: 10px 0;
+}
+
+table,
+td,
+th {
+    border: 1px solid #000;
+}
+form label {
+    color: #333;
+    margin-bottom: 10px;
+    font-size: 14px;
+    margin-bottom: 20px;
+    font-family: 'Poppins';
+}
+
+form .details,
+form .sections {
+    display: flex;
+    flex-direction: column;
+    margin: 30px 0;
+}
+form .details input,
+form .details select,
+form .sections input,
+form .sections select {
+    padding: 15px;
+    border: none;
+    background-color: rgba(51, 51, 51, 0.05);
+    outline: none;
+}
+
+.lasric-apply-form button, .lasric-apply-form .submitArea {
+    position: relative;
+    padding: 20px;
+    font-weight: 700;
+    margin-top: 20px;
+    border: none;
+    background-color: orange;
+    color: #fff;
+    width: 100%;
+    overflow: hidden;
+    cursor: pointer;
+    font-size: 12px;
+    text-align: center;
+}
+
+form .line-section {
+    width: 100%;
+    height: 1px;
+    background-color: rgba(0, 0, 0, 0.2);
+    margin: 20px 0;
+}
+
+form .section label {
+    text-transform: uppercase;
+    color: orange;
+    font-size: 16px;
+}
+
+form .section {
+    margin-bottom: 30px;
+}
+
+form .sub-section label {
+    font-weight: 400;
+}
+
+form .sections input,
+form .sections select,
+form textarea {
+    width: 100%;
+    font-family: Nunito, sans-serif;
+    padding: 10px;
+    margin: 30px 0;
+    border: none;
+    background-color: rgba(51, 51, 51, 0.03);
+    resize: none;
+    outline: none;
+}
+
+form .sections input,
+form .sections select {
+    padding: 15px;
+}
+
+form .sub-section table input {
+    margin: 0;
+}
+
+form .sub-section table {
+    margin: 30px 0;
+}
+
+form table tr p {
+    font-size: 14px;
+    padding: 0 15px;
+}
+
+.add-button {
+    background-color: indigo;
+    padding: 1rem;
+    border: none;
+    color: #fff;
+    font-weight: 700;
+    cursor: pointer;
+    margin-bottom: 2rem;
+    width: 150px;
+    font-size: 12px;
+}
+
+.rm-button {
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background-color: #dc143c;
+    color: #fff;
+    font-size: 20px;
+    line-height: 18px;
+    text-align: center;
+    box-sizing: border-box;
+    cursor: pointer;
+}
+.fieldError {
+    border: 1px solid red !important;
+}
+
+.overide{
+    background-color: yellow;
+    width: 100%;
+}
+
+.notReady{
+    background-color: #999;
+    color: #f9f9f9;
+}
+
+.fileUploaded{
+    background-color: #f9f9f9;
+    margin-bottom: 10px;
+    padding: 10px 20px ;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 13px;
+
+    .file-ui{
+        font-size: 16px;
+    }
+
+    .uploadName{
+        width: 70%;
+        overflow: hidden;
+        display: flex;
+        align-items: center;
+    }
+
+    .uploadAction{
+
+        background-color: #000;
+        padding: 15px 20px;
+        color: #fff;
+        border-radius: 10px;
+        font-weight: bold;
+        cursor: pointer;
+
+         &.hasFile{
+             background-color: #f60;
+         }
+
+    }
+}
+
+.uploadingFiles{
+    position: fixed;
+    z-index: 9999;
+    background-color: rgba($color: #000, $alpha: 0.7);
+    height: 100vh;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+
+    .cont{
+        background-color: #fff;
+        width: 400px;
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+        padding: 30px 20px;
+        border-radius: 20px;
+        padding-bottom: 50px;
+    }
+
+    p{
+        text-align: center;
+        width: 80%;
+        font-size: 14px;
+        margin-top: 10px;
+    }
+}
+
+.show-tabs-body{
+    display: none;
+}
+
+@media (max-width: 425px) {
+    .wrapper{
+
+        padding-top: 100px;
+        
+        .section{
+
+            margin-bottom: 0px;
+            margin-top: 60px;
+
+        }
+       
+    }
+
+    .title-bar{
+        display: none;
+    }
+
+    .mints{
+        width: 100%;
+        left: 0;
+        top: 130px;
+        height: 100vh;
+        padding: 50px 0px;
+        z-index: 9999;
+    }
+
+    .tabnine{
+        font-size: 13px !important;
+    }
+
+    .submitApplication{
+        margin: 15px 20px;
+        padding: 20px;
+        text-align: center;
+        font-size: 14px;
+        font-family: "Poppins";
+        font-weight: 700;
+        color: #fff;
+        border-radius: 100px;
+        cursor: pointer;
+    }
+
+    .lasric-apply-form {
+
+        width: 100%;
+        padding:10px;
+        margin-left: 0;
+        background-color: #fff;
+        box-shadow: none;
+        margin-top: 0;
+
+        table {
+            th{
+                font-size: 12px;
+                
+            }
+
+            td{
+                &:nth-child(3){
+                    display: none;
+                }
+            }
+        }
+    
+    }
+
+
+.show-tabs{
+
+    background-color: #111;
+    z-index: 999999999;
+    top: 90px;
+    left: 20px;
+    font-size: 11px;
+    padding: 13px 15px;
+    border-radius: 5px;
+    color: #fff;
+    font-weight: bold;
+    width: max-content;
+    margin-left: 20px;
+    margin-top: 10px;
+
+
+}
+
+.show-tabs-body{
+
+    position: fixed;
+    z-index: 99999999;
+    top: 70px;
+    left: 0px;
+    border-radius: 0px;
+    color: #fff;
+    font-weight: bold;
+    width: 100%;
+    background-color: #f9f9f9;
+    padding-bottom: 10px;
+    display: block;
+
+    p{
+        background-color: rgb(255, 179, 0);
+        font-size: 11px;
+        padding: 10px 20px;
+    }
+
+
+}
+}

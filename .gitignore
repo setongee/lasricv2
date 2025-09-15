@@ -1,0 +1,13 @@
+# Node modules
+client/node_modules/
+server/node_modules/
+
+# Environment files
+client/.env
+server/.env
+
+# Logs
+*.log
+
+# Mac files
+.DS_Store

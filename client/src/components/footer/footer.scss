@@ -1,0 +1,137 @@
+.footer{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    margin: 0 auto;
+    width: 100%;
+    justify-content: space-between;
+
+    .logo-foot{
+        width: 120px;
+
+        img{
+            width: 100%;
+        }
+
+        
+    }
+
+    .links-footer{
+
+        display: flex;
+        align-items: center;
+        gap: 30px;
+
+
+        a{
+            font-size: 14px;
+            color: #333;
+        }
+
+    }
+}
+
+.top__footer{
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+
+    .active__footer{
+        color: #00B44E !important;
+        font-weight: 600 !important;
+    }
+
+    p{
+        font-size: 14px;
+        color: #333;
+        font-weight: 300;
+    }
+
+    .social{
+
+        .fi{
+            font-size: 21px !important;
+        }
+    }
+}
+
+.border__below{
+
+    border-bottom: 1px solid #e1e1e1;
+    padding-bottom: 40px;
+    margin-bottom: 40px;
+
+}
+
+.bottom__padding{
+    margin-bottom: 30px;
+}
+
+@media (max-width: 600px) {
+
+    .footer{
+        .links-footer{
+            flex-wrap: wrap;
+            gap: 20px 30px;
+        }
+
+        .top__footer{
+            flex-direction: column-reverse;
+            align-items: flex-start;
+            gap: 30px;
+        }
+
+        .border__below{
+            padding-bottom: 30px;
+            margin-bottom: 30px;
+        }
+
+        .logo-foot{
+            display: none;
+        }
+
+        .bottom__fix{
+            gap: 20px;
+        }
+    }
+
+}
+
+@media (max-width: 500px) {
+
+    .footer{
+
+        padding-top: 70px;
+        // .links-footer{
+        //     flex-wrap: wrap;
+        // }
+
+        // .top__footer{
+        //     flex-direction: column-reverse;
+        //     align-items: flex-start;
+        //     gap: 20px;
+        // }
+
+        // .border__below{
+        //     padding-bottom: 30px;
+        //     margin-bottom: 30px;
+        // }
+    }
+
+}
+
+.client_dashboard, .client_council, .client_admin{
+    display: none;
+}
+
+.footer__prime{
+
+    &.client_application{
+
+        display: none;
+
+    }
+    
+}

@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <style>
+    
+    *{
+        padding: 0;
+        margin : 0;
+        box-sizing: border-box;
+        font-family: muli;
+        color: #000;
+    }
+
+    .handle{
+        background-color: #F8F3F6;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 30px 0;
+        width: 100%;
+        position: relative;
+    }
+
+    .containerEmail{
+        width: 500px;
+        background-color: #fff;
+        box-shadow: 0 3px 50px rgba(0, 0, 0, 0.1);
+        overflow: hidden;
+        height: 750px;
+        border-radius: 10px;
+        margin: 0 auto;
+    }
+
+    .headArea{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 30px 30px 18px 30px;
+        text-transform: uppercase;
+    }
+
+    .headArea p{
+        font-size: 12px;
+    }
+
+    .line-tru{
+        border-top: 0.5px solid rgba(0, 0, 0, 0.1);
+        margin: 8px 0;
+    }
+
+    .emailImage{
+        height: 180px;
+        width: 100%;
+        background-color: seagreen;
+        overflow: hidden;
+        position: relative;
+    }
+
+    .emailImage img{
+        width: 100%;
+        position: absolute;
+        top: -40%;
+    }
+
+    .text-message{
+        padding: 30px 40px;
+        font-size: 14px;
+    }
+
+    .text-message .message-field{
+        margin: 20px 0;
+        line-height: 23px;
+    }
+
+    .text-message .details_email p{
+
+        padding: 15px 0;
+        border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+
+    }
+
+    .text-message .details_email p.lastOne{
+        border: none;
+    }
+
+    .text-message .paybutton button{
+        background-color: #F7EBF3;
+        color: #000;
+        text-decoration: none;
+        text-align: center;
+        width: 100%;
+        padding: 20px 30px;
+        border: none;
+        border-radius: 100px;
+        margin-top: 20px;
+        text-transform: uppercase;
+        font-size: 12px;
+        cursor: pointer;
+        outline: none;
+    }
+
+    .addInfo{
+        font-size: 12px;
+        color: #888;
+        margin-top: 25px;
+        line-height: 18px;
+        text-align: center;
+        padding: 0 30px;
+    }
+
+</style>
+
+</head>
+
+<body>
+
+    <div class="handle">
+    
+        <div class="containerEmail">
+        
+        <div class="headArea">
+            <p>Ann cranberry | <strong>academy</strong></p>
+            <p>course registration</p>
+        </div>
+
+        <div class="line-tru"></div>
+
+        <div class="emailImage">
+            <img src="https://image.freepik.com/free-photo/sweet-thank-you-charming-touched-sincere-afro-american-woman-appreciates-surprise-adorable-gift-keeps-palms-pressed-heart-being-very-grateful-you-poses-against-purple-wall_273609-37573.jpg" alt="email image">
+        </div>
+
+        <div class="line-tru"></div>
+
+        <div class="text-message">
+            <div class="idTag">Dear {{firstname}} {{lastname}}, </div>
+            <div class="message-field">
+                Congratulations on adding <strong>ANN CRANBERRY - {{course}}</strong> course on anncranberry, kindly find the details below : 
+            </div>
+            <div class="details_email">
+                <p>Course Title : Ann Cranberry - {{course}} Course</p>
+                <p>Duration : 3 weeks</p>
+                <p class="lastOne">Price : {{price}} </p>
+            </div>
+            <div class="paybutton">
+                <button>Proceed to payment</button>
+            </div>
+            <div class="addInfo">
+                <p>For more details and enquiries kindly contact anncranberry support for more information via <strong> questions@anncranberry.com </strong> or call <strong> 09033440193</strong> </p>
+            </div>
+        </div>
+
+        
+
+
+
+        </div>
+
+    </div>
+
+    
+</body>
+
+</html>

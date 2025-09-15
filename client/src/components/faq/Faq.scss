@@ -1,0 +1,153 @@
+.faqs{
+    
+    color: #000;
+
+    .tiny-name{
+        margin: 0 auto;
+    }
+
+    .mainText{
+        width: 70%;
+        text-align: center;
+        margin-top: 30px;
+        line-height: 49px;
+        margin: 90px auto;
+    }
+
+    .faqSection{
+
+        margin: 0 auto;
+        margin-top: 90px;
+        width: 820px;
+
+        .faq{
+
+            // padding: 30px;
+            position: relative;
+            transition: all .4s ease-in-out;
+            margin-bottom: 30px;
+            padding-bottom: 30px;
+            border-bottom: 1px solid #e1e1e1;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+
+            &:last-child{
+                border: none;
+            }
+            
+            .text-faq{
+
+                font-size: 16px;
+                display: flex;
+                flex-direction: column;
+                line-height: 26px;
+
+                .q{
+                    color: #000;
+                    height: 100%;
+                    font-weight: 500;
+                }
+
+                .a{
+                    font-weight: 300;
+                    line-height: 25px;
+                    width: 100%;
+                    color: #444;
+                    height: 0px;
+                    overflow: hidden;
+                    // transition: all .4s ease-in-out;
+                }
+
+            }
+
+            .controller{
+                width: 30px;
+                height: 30px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                font-size: 18px;
+                cursor: pointer;
+                position: relative;
+                // top: 0px;
+                // right: 25px;
+
+                .overlay{
+                    width: 100%;
+                    height: 100%;
+                    background-color: transparent;
+                    position: absolute;
+                }
+            }
+
+            .controllerB{
+
+                display: none;
+
+            }
+
+            &.openFaq{
+
+
+                .a{
+                    display: block !important;
+                    height: 100%;
+                    margin-top: 30px;
+                }
+
+                .controller{
+                    display: none;
+                }
+
+                .controllerB{
+                    display: flex;
+                }
+
+            }
+        }
+    }
+
+}
+
+@media(max-width : 1000px){
+
+   .faqs{
+
+        .faqSection{
+
+            margin-top: 50px;
+            width: 100%;
+
+        }
+
+   }
+
+}
+
+@media(max-width : 500px){
+
+    .faqs{
+ 
+         .faqSection{
+ 
+             margin-top: 50px;
+             width: 100%;
+
+             .faq{
+
+                margin-bottom: 20px;
+                padding-bottom: 20px;
+
+                .text-faq{
+                    .q{
+                        font-weight: 600;
+                    }
+                }
+             }
+             
+         }
+ 
+    }
+ 
+ }

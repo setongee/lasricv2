@@ -1,0 +1,127 @@
+.peopleSection{
+
+    .peopleSectionHeader{
+
+        font-size: 35px;
+        font-weight: 600;
+        margin-bottom: 100px;
+        text-align: center;
+
+    }
+
+    .arrow___side{
+        font-size: 12px;
+        margin-top: 5px;
+    }
+
+    .lynk{
+        display: flex;
+        align-items: center;
+        margin-top: 80px;
+
+        p{
+            font-size: 15px;
+            font-weight: 500;
+        }
+    }
+
+    .lasric__gallery{
+
+        display: flex;
+        flex-wrap: wrap;
+        gap: 30px;
+        justify-content: center;
+
+        .photo__card{
+            width: 280px;
+            overflow: clip;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            cursor: pointer;
+
+            .photo{
+
+                height: 296px;
+                overflow: hidden;
+
+                img{
+                    width: 100%;
+                    height: 100%;
+                    object-fit: cover;
+                }
+            }
+
+            .card__details{
+                display: flex;
+                flex-direction: column;
+                gap: 5px;
+
+                p{
+                    font-size: 16px;
+                    font-weight: 600;
+                }
+
+                span{
+                    font-size: 14px;
+                    color: #666;
+                    line-height: 21px;
+                    width: 90%;
+                    white-space: nowrap;
+                    overflow: hidden;
+                    text-overflow: ellipsis;
+                }
+            }
+
+            .social__links{
+                display: flex;
+                align-items: center;
+                gap: 25px;
+
+                .social__icon{
+                    display: flex;
+                    align-items: center;
+                    font-size: 18px;
+                    gap: 10px;
+
+                    .fi{
+                        margin-top: 3px;
+                    }
+
+                    p{
+                        text-transform: uppercase;
+                        letter-spacing: 2px;
+                        font-size: 11px;
+                    }
+
+                }
+            }
+        }
+
+    }
+
+}
+
+@media(max-width : 768px){
+
+    .peopleSection{
+        .peopleSectionHeader{
+            margin-bottom: 50px;
+            font-size: 30px;
+        }
+    }
+
+}
+
+@media(max-width : 500px){
+
+    .peopleSection{
+        .peopleSectionHeader{
+            margin-bottom: 50px;
+            font-size: 26px;
+            line-height: 34px;
+            margin-top: 30px;
+        }
+    }
+
+}

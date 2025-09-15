@@ -1,0 +1,67 @@
+.blogSection{
+
+    display: flex;
+    overflow: hidden;
+    overflow-x: auto;
+    scrollbar-width: none;
+    gap: 20px;
+
+    .blog__card{
+        min-width: 400px;
+        width: 400px;
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+        cursor: pointer;
+
+        .photo{
+            width: 100%;
+            height: 350px;
+            background-color: #eee;
+            overflow: hidden;
+
+            img{
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+            }
+        }
+
+        p{
+            width: 80%;
+            font-weight: 600;
+            line-height: 24px;
+        }
+
+        &:hover{
+            p{
+                text-decoration: underline;
+            }
+        }
+    }
+
+    a{
+        color: #131313;
+    }
+
+}
+
+@media(max-width : 500px){
+
+    .blogSection{
+        .blog__card{
+
+            min-width: 300px;
+            width: 300px;
+
+            .photo{
+                height: 200px;
+            }
+
+            p{
+                width: 90%;
+            }
+        }
+    }
+
+}

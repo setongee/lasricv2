@@ -1,0 +1,617 @@
+body{
+
+  overflow-x: hidden !important;
+}
+
+.app{
+  overflow-x: hidden;
+}
+
+.fixedClass{
+  position: fixed;
+  width: 100%;
+  z-index: 99999999;
+}
+
+/* component styles */
+
+.lasric__section{
+
+  padding-bottom: 70px;
+
+  &.mint{
+      background-color: #F2F8F5;
+  }
+
+  .cards__group{
+
+      display: flex;
+      overflow: hidden;
+      justify-content: space-between;
+      gap: 20px;
+
+      .card{
+
+          width: 32%;
+          padding: 20px;
+          height: 300px;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          flex-direction: column;
+          gap: 20px;
+          color: #fff;
+
+          p{
+              font-size: 45px;
+              font-weight: 600;
+          }
+
+          span{
+              width: 60%;
+              text-align: center;
+              font-size: 16px;
+              line-height: 25px;
+              text-decoration: underline;
+          }
+
+          &:first-child{
+              background-color: #243642;
+          }
+
+          &:nth-child(2){
+              background-color: #629584;
+          }
+
+          &:last-child{
+              background-color: #387478;
+          }
+      }
+
+  }
+
+  .review__group{
+
+      overflow-x: auto;
+      gap: 20px;
+      display: flex;
+      scrollbar-width: none;
+      margin-bottom: 20px;
+  }
+
+  .review__card{
+
+      background-color: #fff;
+      padding: 40px;
+      width: 400px;
+      min-width: 400px;
+      height: 400px;
+      display: flex;
+      flex-direction: column;
+      position: relative;
+
+      .quotes{
+
+          height: 70px;
+          width: 70px;
+          opacity: .2;
+          font-size: 50px;
+          overflow: hidden;
+
+          img{
+              width: 100%;
+              height: 100%;
+              object-fit: contain;
+          }
+      }
+
+      .comment{
+          font-size: 17px;
+          width: 90%;
+          font-weight: 600;
+          line-height: 25px;
+          margin-top: 40px;
+      }
+
+      .author{
+
+          border-top: 1px solid #e1e1e1;
+          padding: 30px 0px;
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          position: absolute;
+          width: calc(100% - 80px);
+          translate: -50%;
+          left: 50%;
+          bottom: 0;
+
+          .author__name{
+
+              display: flex;
+              flex-direction: column;
+              gap: 6px;
+              
+              p{
+                  font-weight: 600;
+              }
+
+              span{
+                  font-size: 14px;
+                  color: #777;
+              }
+              
+          }
+
+          .author__photo{
+
+              height: 50px;
+              width: 50px;
+              background-color: #eee;
+              border-radius: 100%;
+              overflow: hidden;
+              display: flex;
+              align-items: center;
+              justify-content: center;
+              font-weight: 600;
+          }
+
+      }
+
+      &:first-child{
+        .author__photo{
+          background-color: #2ecc71;
+          color: #fff;
+        }
+      }
+
+      &:nth-child(2){
+        .author__photo{
+          background-color: #2980b9;
+          color: #fff;
+        }
+      }
+
+      &:nth-child(3){
+        .author__photo{
+          background-color: #8e44ad;
+          color: #fff;
+        }
+      }
+
+      &:nth-child(4){
+        .author__photo{
+          background-color: #d35400;
+          color: #fff;
+        }
+      }
+
+      &:nth-child(5){
+        .author__photo{
+          background-color: #2c3e50;
+          color: #fff;
+        }
+      }
+
+  }
+
+}
+
+.nope{
+  height: 60vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  font-size: 13px;
+  font-weight: 600;
+  padding: 0 40px;
+  text-align: center;
+  line-height: 22px;
+}
+
+.faqsSection{
+  
+  position: relative;
+  overflow: clip;
+  padding-bottom: 100px;
+
+  .rings{
+      width: 350px;
+      height: 350px;
+      position: absolute;
+      border: 24px solid #1C3F3A;
+      border-radius: 100%;
+      z-index: -1;
+  }
+
+  .ring1{
+      right: -100px;
+      top: -100px;
+  }
+
+  .ring2{
+      left: -150px;
+      bottom: -150px;
+  }
+
+  .ring3{
+      left: -250px;
+      bottom: -250px;
+      border-color: #F2F8F5;
+
+      width: 550px;
+      height: 550px;
+  }
+
+  .section__title{
+
+      font-size: 35px;
+      text-align: center;
+      width: 700px;
+      line-height: 45px;
+      font-weight: 600;
+      margin: 0 auto;
+      padding-top: 100px;
+      padding-bottom: 30px;
+
+  }
+}
+
+.rings{
+  width: 350px;
+  height: 350px;
+  position: absolute;
+  border: 24px solid #1C3F3A;
+  border-radius: 100%;
+  z-index: -1;
+}
+
+.ring1{
+  right: -100px;
+  top: -100px;
+}
+
+.ring2{
+  left: -150px;
+  bottom: -150px;
+}
+
+.ring4{
+  right: -250px;
+  bottom: -250px;
+  border-color: #F2F8F5;
+  width: 500px;
+  height: 500px;
+}
+
+.ring3{
+  left: -250px;
+  bottom: -250px;
+  border-color: #F2F8F5;
+
+  width: 550px;
+  height: 550px;
+}
+
+.getStarted{
+
+  padding: 100px 0;
+  padding-top: 0;
+  position: relative;
+  overflow: clip;
+
+}
+
+.mint{
+  background-color: #F2F8F5;
+}
+
+.subscribe{
+
+  padding: 90px 0;
+  padding-top: 0;
+  position: relative;
+
+  .subscribeBar{
+      height: 300px;
+      width: 100%;
+      position: absolute;
+      z-index: -1;
+      top: -65%;
+  }
+
+
+}
+
+.subscription{
+
+  background-color: #1C3F3A;
+  width: 1000px;
+  padding: 70px 100px;
+  margin: 0 auto;
+  border-radius: 10px;
+  position: relative;
+  margin-top: 70px;
+
+}
+
+
+
+/* mobile views */
+
+@media(max-width : 1200px) {
+
+  .lasric__section{
+     padding-bottom: 30px;
+  }
+
+  .faqsSection{
+
+      .ring1{
+        right: -200px;
+        top: -200px;
+      }
+
+  }
+
+}
+
+@media(max-width : 1100px) {
+
+  .subscription{
+    width: 100%;
+    padding: 50px;
+  }
+
+}
+
+@media(max-width : 1000px) {
+
+  .lasric__section{
+     padding-bottom: 30px;
+  }
+
+  .faqsSection{
+
+      .ring1{
+        right: -120px;
+        top: -120px;
+        border-color: #F2F8F5;
+      }
+
+      .ring2{
+        border-color: #F2F8F5;
+      }
+
+      .section__title{
+        width: 90%;
+        padding-top: 70px;
+      }
+
+  }
+
+}
+
+
+@media(max-width : 900px) {
+
+  .lasric__section{
+
+    padding-bottom: 30px;
+
+    .cards__group{
+
+      .card{
+
+        height: 220px;
+
+        p{
+          font-size: 35px;
+        }
+
+        span{
+          width: 100%;
+          font-size: 14px;
+          line-height: 23px;
+        }
+      }
+
+    }
+
+  }
+
+}
+
+@media(max-width : 768px) {
+
+  .lasric__section{
+
+    padding-bottom: 30px;
+
+    .cards__group{
+
+      gap: 10px;
+
+      .card{
+
+        height: 200px;
+        padding: 10px;
+
+        p{
+          font-size: 30px;
+        }
+
+        span{
+          width: 100%;
+          font-size: 13px;
+          line-height: 20px;
+        }
+      }
+
+    }
+
+  }
+
+}
+
+@media(max-width : 600px) {
+
+  .lasric__section{
+
+    padding-bottom: 30px;
+
+    .cards__group{
+
+      flex-direction: column;
+
+      gap: 10px;
+
+      .card{
+
+        height: 170px;
+        width: 100%;
+        padding: 10px;
+        gap: 10px;
+
+        p{
+          font-size: 30px;
+        }
+
+        span{
+          width: 70%;
+          font-size: 15px;
+          line-height: 22px;
+        }
+      }
+
+    }
+
+  }
+
+  .subscription{
+    width: 100%;
+    padding: 30px 40px;
+  }
+
+}
+
+@media(max-width : 500px) {
+
+  .lasric__section{
+
+    .review__group{
+      flex-direction: column;
+    }
+
+    .review__card{
+
+      width: 100%;
+      min-width: 100%;
+      padding: 30px;
+      height: 100%;
+      gap: 20px;
+
+      .quotes{
+
+        display: none;
+
+      }
+
+      .comment{
+        margin-top: 0;
+        width: 100%;
+        font-size: 16px;
+        line-height: 24px;
+      }
+
+      .author{
+
+        border-top: 1px solid #e1e1e1;
+        padding: 0;
+        padding-top: 20px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        position: relative;
+        width: 100%;
+        translate: 0%;
+        left: 0%;
+        bottom: 0;
+
+        .author__name{
+
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
+            
+            p{
+                font-weight: 600;
+                font-size: 14px;
+            }
+
+            span{
+                font-size: 13px;
+                color: #777;
+            }
+            
+        }
+
+    }
+
+    }
+
+  }
+
+  .faqsSection{
+
+    padding-bottom: 0px;
+
+    .section__title{
+      font-size: 24px;
+      width: 100%;
+      line-height: 34px;
+      text-align: left;
+      padding-top: 30px;
+      padding-bottom: 0;
+    }
+
+    .rings{
+      display: none;
+    }
+
+}
+
+  .rings{
+    display: none;
+  }
+  
+  .getStarted{
+    padding-bottom: 50px;
+  }
+
+  .subscribe{
+    padding-bottom: 0px;
+  }
+
+  .subscription{
+    width: 100%;
+    padding: 20px;
+    padding-top: 40px;
+    margin-top: 50px;
+  }
+
+}
+
+/* * {
+
+  input{
+
+    &::placeholder{
+      font-size: normal !important;
+    }
+  }
+
+} */

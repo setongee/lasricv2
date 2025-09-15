@@ -1,0 +1,105 @@
+.newsletter{
+    
+    display: flex;
+    align-items: center;
+    color: #fff;
+    justify-content: space-between;
+
+    .title{
+        font-size: 28px;
+        font-weight: 500;
+    }
+
+    form{
+
+        display: flex;
+        width: 60%;
+        
+        input{
+            width: 68%;
+            height: 60px;
+            padding: 20px;
+            border: none;
+            outline: none;
+            border-radius: 5px 0 0 5px;
+        }
+
+        .submitButton{
+            background-color: #00B44E;
+            width: 32%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 14px;
+            font-weight: 500;
+            border-radius: 0 5px 5px 0;
+            cursor: pointer;
+        }
+
+    }
+
+}
+
+@media(max-width : 1100px){
+
+    .newsletter{
+
+        .title{
+            font-size: 21px;
+        }
+
+        form{
+
+            width: 100%;
+
+            .submitButton{
+
+                width: 150px;
+
+            }
+        }
+
+    }
+
+}
+
+@media(max-width : 600px){
+
+    .newsletter{
+
+        flex-direction: column;
+        gap: 20px;
+
+        .title{
+            font-size: 18px;
+        }
+
+    }
+
+}
+
+@media(max-width : 600px){
+
+    .newsletter{
+
+        gap: 40px;
+
+        form{
+            flex-direction: column;
+            gap: 5px;
+
+            input, .submitButton{
+                border-radius: 5px;
+                width: 100%;
+            }
+
+            .submitButton{
+
+                height: 50px;
+
+            }
+            
+        }
+    }
+
+}

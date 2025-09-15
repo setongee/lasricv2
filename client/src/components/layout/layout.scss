@@ -1,0 +1,550 @@
+.brand__section{
+    background-color: #1C3F3A;
+    padding: 30px 0;
+}
+
+.sectionHeading{
+
+    margin: 50px 0;
+
+    .subtag{
+
+        text-transform: capitalize;
+        font-size: 15px;
+        color: #00FF59;
+        font-weight: 600;
+
+    }
+
+    .divider{
+
+        margin: 50px 0;
+        height: 1px;
+        width: 100%;
+        background-color: rgba($color: #fff, $alpha: 0.5);
+
+    }
+
+    .titleHeader{
+
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+        .title{
+            font-size: 35px;
+            width: 580px;
+            font-weight: 600;
+            color: #fff;
+        }
+
+        .subtitle{
+            color: #D6D6D6;
+            width: 360px;
+            font-size: 16px;
+            line-height: 26px;
+            font-weight: 400;
+        }
+        
+    }
+
+    &.light{
+
+        border-top: 1px solid #cfcfcf;
+        margin: 0;
+        padding: 50px 0;
+
+        .subtag{
+            color: #131313;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+
+            .SectionHeadingLinks{
+                
+                display: flex;
+                align-items: center;
+                color: #00B44E;
+                text-decoration: underline;
+                gap: 5px;
+                text-align: center;
+                width: max-content;
+            
+                .arrow__go{
+            
+                    font-size: 12px;
+                    margin-top: 4px;
+            
+                }
+                
+            }
+        }
+
+        .divider{
+            background-color: #999;
+            display: none;
+        }
+
+        .titleHeader{
+
+            padding: 50px 0;
+            margin: 50px 0;
+            border-top: 1px solid #cfcfcf;
+            border-bottom: 1px solid #cfcfcf;
+            margin-bottom: 0;
+            gap: 30px;
+
+
+            .title{
+                color: #131313;
+            }
+
+            .subtitle{
+                color: #444;
+            }
+        }
+
+    }
+
+    &.extendTitle{
+
+        .titleHeader{
+            .title{
+                width: 800px;
+            }
+            .subtitle{
+                display: none;
+            }
+        }
+
+    }
+
+    &.extendTitle2{
+
+        .titleHeader{
+            .title{
+                width: 900px;
+            }
+            .subtitle{
+                display: none;
+            }
+        }
+
+    }
+
+    .navArrows{
+        font-size: 21px;
+        display: flex;
+        align-items: center;
+        gap: 20px;
+        color: #1C3F3A;
+        cursor: pointer;
+    }
+
+    &.flow{
+
+        margin: 0;
+        padding-top: 100px;
+        padding-bottom: 30px;
+
+        .subtag{
+            color: #131313;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+
+            .SectionHeadingLinks{
+                
+                display: flex;
+                align-items: center;
+                color: #00B44E;
+                text-decoration: underline;
+                gap: 5px;
+                text-align: center;
+                width: max-content;
+            
+                .arrow__go{
+            
+                    font-size: 12px;
+                    margin-top: 4px;
+            
+                }
+                
+            }
+        }
+
+        .divider{
+            background-color: #cfcfcf;
+        }
+
+        .titleHeader{
+
+            padding: 0px 0;
+            margin: 0px 0;
+            
+            margin-bottom: 50px;
+
+
+            .title{
+                color: #131313;
+                width: 500px;
+            }
+
+            .subtitle{
+                color: #444;
+            }
+        }
+
+    }
+
+}
+
+@media(max-width : 1200px) {
+
+    .sectionHeading {
+
+        &.light{
+            padding: 30px 0;
+
+            .titleHeader{
+                margin: 30px 0;
+                padding: 30px 0;
+                margin-bottom: 0;
+            }
+        }
+
+
+    }
+  
+  }
+
+
+  @media(max-width : 900px) {
+
+    .sectionHeading {
+
+        padding: 0px 0;
+        margin: 0;
+        padding-top: 20px;
+
+        .divider{
+
+            margin: 30px 0;
+    
+        }
+
+        .titleHeader{
+
+            margin: 0px 0;
+            padding: 0px 0;
+            margin-bottom: 0;
+            flex-direction: column;
+            align-items: flex-start;
+            gap: 20px;
+    
+            .title{
+                font-size: 35px;
+                width: 580px;
+                font-weight: 600;
+                color: #fff;
+            }
+    
+            .subtitle{
+                color: #D6D6D6;
+                width: 360px;
+                font-size: 16px;
+                line-height: 30px;
+                text-decoration: underline;
+                font-weight: 400;
+            }
+            
+        }
+
+        &.light{
+            padding: 30px 0;
+
+            .titleHeader{
+                margin: 30px 0;
+                padding: 30px 0;
+                margin-bottom: 0;
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 30px;
+
+                .subtitle{
+
+                    width: 500px;
+                    
+                }
+            }
+        }
+
+        &.extendTitle{
+
+            .titleHeader{
+                .title{
+                    width: 600px;
+                }
+                .subtitle{
+                    display: none;
+                }
+            }
+    
+        }
+
+        &.flow{
+
+            margin: 0;
+            padding-top: 40px;
+            padding-bottom: 0px;
+    
+        }
+
+
+    }
+  
+  }
+
+  @media(max-width : 700px) {
+
+    .sectionHeading {
+
+        &.light{
+            padding: 30px 0;
+
+            .titleHeader{
+                margin: 30px 0;
+                padding: 30px 0;
+                margin-bottom: 0;
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 30px;
+
+                .title{
+                    width: 100%;
+                }
+
+                .subtitle{
+
+                    width: 100%;
+                    
+                }
+            }
+        }
+
+        &.extendTitle{
+
+            .titleHeader{
+                .title{
+                    width: 100%;
+                }
+                .subtitle{
+                    display: none;
+                }
+            }
+    
+        }
+
+
+    }
+  
+  }
+
+  @media(max-width : 600px){
+
+    .sectionHeading{
+
+        padding: 0px 0;
+        margin: 0;
+        padding-top: 20px;
+
+        .divider{
+
+            margin: 30px 0;
+    
+        }
+
+        .titleHeader{
+
+            margin: 0px 0;
+            padding: 0px 0;
+            margin-bottom: 0;
+            flex-direction: column;
+            align-items: flex-start;
+            gap: 20px;
+    
+            .title{
+                font-size: 35px;
+                width: 100%;
+                font-weight: 600;
+                color: #fff;
+            }
+    
+            .subtitle{
+                color: #D6D6D6;
+                width: 360px;
+                font-size: 16px;
+                line-height: 30px;
+                text-decoration: underline;
+                font-weight: 400;
+            }
+            
+        }
+
+    }
+
+  }
+
+
+  @media(max-width : 500px) {
+
+    .brand__section{
+        padding-bottom: 1px;
+    }
+
+    .sectionHeading {
+
+        margin-top: 0px !important;
+
+        padding: 0px 0;
+        margin: 0;
+        padding-top: 0px;
+
+        .divider{
+
+            margin: 30px 0;
+    
+        }
+
+        .titleHeader{
+
+            margin: 0px 0;
+            padding: 0px 0;
+            margin-bottom: 0;
+            flex-direction: column;
+            align-items: flex-start;
+            gap: 20px;
+    
+            .title{
+                font-size: 26px;
+                line-height: 34px;
+                width: 100%;
+                font-weight: 600;
+                color: #fff;
+            }
+    
+            .subtitle{
+                color: #D6D6D6;
+                width: 100%;
+                font-size: 16px;
+                line-height: 28px;
+                text-decoration: underline;
+                font-weight: 400;
+            }
+            
+        }
+
+        &.light{
+
+            padding: 30px 0;
+            margin-top: 30px !important;
+
+            .titleHeader{
+                margin: 30px 0;
+                padding: 30px 0;
+                margin-bottom: 0;
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 20px;
+
+                .title{
+                    width: 100%;
+                    font-size: 26px;
+                    line-height: 34px;
+                }
+
+                .subtitle{
+
+                    width: 100%;
+                    line-height: 28px;
+                    color: #444;
+                    
+                }
+            }
+        }
+
+        &.extendTitle{
+
+            .titleHeader{
+                
+                gap: 40px;
+
+                .title{
+                    width: 100%;
+                }
+                .subtitle{
+                    display: none;
+                }
+            }
+    
+        }
+
+        &.flow{
+
+            // margin: 0;
+            // padding-top: 100px;
+            // padding-bottom: 30px;
+    
+            .subtag{
+                color: #131313;
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+    
+                .SectionHeadingLinks{
+                    
+                    display: flex;
+                    align-items: center;
+                    color: #00B44E;
+                    text-decoration: underline;
+                    gap: 5px;
+                    text-align: center;
+                    width: max-content;
+                
+                    .arrow__go{
+                
+                        font-size: 12px;
+                        margin-top: 4px;
+                
+                    }
+                    
+                }
+            }
+    
+            .divider{
+                background-color: #cfcfcf;
+            }
+    
+            .titleHeader{
+    
+                padding: 0px 0;
+                margin: 0px 0;
+                
+                margin-bottom: 30px;
+    
+    
+                .title{
+                    color: #131313;
+                    width: 100%;
+                }
+    
+                .subtitle{
+                    color: #777;
+                }
+            }
+    
+        }
+
+    }
+  
+  }

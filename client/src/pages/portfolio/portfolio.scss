@@ -1,0 +1,251 @@
+.fetch{
+
+    display: flex;
+    // flex-direction: column;
+    width: 800px;
+    margin: 0 auto;
+    margin-top: 50px;
+    gap: 10px;
+
+    .search{
+
+        display: flex;
+        height: 55px;
+        align-items: center;
+        width: 100%;
+        background-color: #fff;
+        border: 1px solid #e1e1e1;
+        border-radius: 7px;
+        padding: 0 10px;
+
+        .icon{
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 13px;
+        }
+
+        .line__dive{
+            height: 20px;
+            width: 1px;
+            margin: 0 10px;
+            background-color: #e1e1e1;
+        }
+
+        input{
+            height: 100%;
+            border: none;
+            padding: 0 5px;
+            width: 100%;
+            outline: none;
+            border: none;
+
+            &::placeholder{
+                text-transform: uppercase;
+                letter-spacing: 2px;
+                font-size: 11px;
+            }
+        }
+
+    }
+
+    .filter{
+        
+        height: 55px;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+
+        select{
+            height: 100%;
+            padding: 0 10px;
+            border-radius: 6px;
+            background-color: #f4f4f4;
+            outline: none;
+            border: none;
+            font-size: 13px;
+            background-color: #fff;
+            border: 1px solid #e1e1e1;
+            cursor: pointer;
+
+            option{
+                font-size: 40px;
+            }
+            
+        }
+
+    }
+
+}
+
+.portfolios{
+
+    margin-top: 70px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 30px;
+    justify-content: center;
+
+    .portfolio{
+
+        display: flex;
+        gap: 20px;
+        flex-direction: column;
+        background-color: #fff;
+        border: 1px solid #e1e1e1;
+        padding: 25px;
+        width: 400px;
+        border-radius: 10px;
+        cursor: pointer;
+
+        &:hover{
+            border-color: #00B44E;
+            .company{
+                text-decoration: underline;
+            }
+        }
+
+        .company{
+
+            display: flex;
+            align-items: center;
+            gap: 20px;
+
+            .logo{
+                width: 70px;
+                height: 70px;
+                background-color: #f9f9f9;
+                border-radius: 100%;
+                flex-shrink: 0;
+
+                img{
+                    width: 100%;
+                    height: 100%;
+                    object-fit: contain;
+                }
+            }
+
+            .company__name{
+
+                display: flex;
+                flex-direction: column;
+                gap: 4px;
+
+                p{
+                    font-weight: 600;
+                    font-size: 15px;
+                }
+
+                span{
+                    font-size: 14px;
+                    color: #777;
+                }
+
+            }
+
+        }
+
+        .details{
+
+            display: flex;
+            gap: 15px;
+        
+            .tab{
+
+                text-transform: uppercase;
+                letter-spacing: 2px;
+                font-size: 10px;
+                background-color: #eee;
+                padding: 5px;
+                font-weight: 500;
+                border-radius: 3px;
+            }
+
+            .active{
+                background-color: #00B44E;
+                color: #fff;
+            }
+
+        }
+
+    }
+
+}
+
+@media(max-width : 950px){
+
+    .fetch{
+
+        width: 100%;
+
+        .search{
+
+        }
+
+    }
+
+    .portfolios{
+
+        margin-top: 40px;
+        gap: 20px;
+
+        .portfolio{
+            width: calc(50% - 20px);
+        }
+
+    }
+ 
+ }
+
+ @media(max-width : 700px){
+
+    .fetch{
+
+        width: 100%;
+
+        .search{
+
+        }
+
+    }
+
+    .portfolios{
+
+        margin-top: 40px;
+        gap: 20px;
+
+        .portfolio{
+            width: 100%;
+        }
+
+    }
+ 
+ }
+
+ @media(max-width :500px){
+
+    .fetch{
+
+        width: 100%;
+        flex-direction: column;
+        
+        .filter{
+
+            select{
+                width: 50%;
+            }
+
+        }
+
+    }
+
+    .portfolios{
+
+        margin-top: 30px;
+        
+
+    }
+ 
+ }

@@ -1,0 +1,546 @@
+.support{
+
+    .button{
+
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        background-color: #1C3F3A;
+        color: #fff;
+        width: max-content;
+        padding: 18px 30px;
+        border-radius: 100px;
+        margin: 70px auto;
+        cursor: pointer;
+
+        .icon{
+
+            width: 25px;
+            height: 25px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+        }
+
+        p{
+            font-weight: 500;
+            font-size: 15px;
+        }
+    }
+
+    .support__lasric{
+        margin: 0 auto;
+        width: 1100px;
+        height: 500px;
+        overflow: hidden;
+        border-radius: 20px;
+        position: relative;
+
+        img{
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .play{
+            height: 140px;
+            width: 140px;
+            overflow: hidden;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+
+        }
+    }
+
+    .support__steps{
+
+        margin-top: 100px;
+
+        .step__header{
+            font-size: 35px;
+            font-weight: 600;
+            text-align: center;
+            color: #1C3F3A;
+        }
+
+        .steps{
+
+            display: flex;
+            flex-direction: column;
+            gap: 40px;
+            margin-top: 100px;
+            align-items: center;
+
+            .step{
+
+                width: 90%;
+                display: flex;
+                justify-content: space-between;
+                gap: 20px;
+
+                &:nth-child( 2n ){
+
+                    flex-direction: row-reverse;
+                }
+
+                .describe{
+
+                    width: 450px;
+                    display: flex;
+                    flex-direction: column;
+                    padding: 30px 0;
+
+                    .step__number{
+                        font-size: 21px;
+                    }
+
+                    .step__title{
+                        font-size: 21px;
+                        font-weight: 600;
+                        margin: 20px 0;
+                    }
+
+                    .step__description{
+                        line-height: 28px;
+                        color: #555;
+                    }
+
+                    .step__link{
+                        margin-top: auto;
+                        color: #00B44E;
+                        font-weight: 600;
+                        
+                    }
+
+                }
+
+                .step__photo{
+
+                    width: 550px;
+                    height: 350px;
+                    background-color: #eee;
+                    border-radius: 10px;
+                    overflow: hidden;
+                    display: flex;
+                    align-items: flex-end;
+
+                    img{
+                        width: 100%;
+                    }
+
+                }
+
+            }
+
+        }
+    }
+
+    .downloadModal{
+
+        height: 100vh;
+        width: 100%;
+        position: fixed;
+        z-index: 999999999;
+        top: 0;
+
+        .overlay{
+            width: 100%;
+            height: 100%;
+            background-color: rgba($color: #000000, $alpha: .6);
+            position: absolute;
+            top: 0;
+        }
+
+        .downlaodInfo{
+
+            width: 700px;
+            background-color: #fff;
+            position: relative;
+            margin: 0 auto;
+            padding: 40px;
+            padding-top: 50px;
+            margin-top: 100px;
+            border-radius: 10px;
+
+            .closeNav{
+                position: absolute;
+                right: 40px;
+                top: 40px;
+                font-size: 20px;
+                cursor: pointer;
+            }
+
+            .downloadHead{
+                font-size: 21px;
+                font-weight: 600;
+                margin-bottom: 20px;
+            }
+
+            p{
+                width: 80%;
+                line-height: 24px;
+                color: #777;
+                font-size: 15px;
+            }
+
+            .downloadFiles{
+
+                margin-top: 70px;
+                display: flex;
+                flex-direction: column;
+                gap: 20px;
+
+                li{
+                    display: flex;
+                    align-items: center;
+                    gap: 20px;
+                    border-bottom: 1px solid #e1e1e1;
+                    padding-bottom: 20px;
+
+                    &:last-child{
+                        border: none;
+                    }
+
+                    a{
+                        color: #131313;
+                        text-transform: uppercase;
+                        font-size: 11.5px;
+                        letter-spacing: 2px;
+                        font-weight: 500;
+                        line-height: 19px;
+
+                        &:hover{
+                            font-weight: 600;
+                        }
+                    }
+
+                    .arr{
+                        font-size: 10px;
+                        margin-top: 3px;
+                        margin-left: auto;
+                    }
+
+                    .pdfIcon{
+                        width: 25px;
+                        height: 25px;
+                        overflow: hidden;
+                        flex-shrink: 0;
+
+                        img{
+                            width: 100%;
+                        }
+                    }
+                }
+
+            }
+        }
+    }
+
+}
+
+@media(max-width : 1200px){
+
+    .support{
+
+        .support__lasric{
+
+            width: 90%;
+
+        }
+
+        .support__steps{
+
+            margin-top: 50px;
+
+            .steps{
+                margin-top: 50px;
+            }
+
+        }
+
+    }
+
+}
+
+@media(max-width : 950px){
+
+    .support{
+
+        .support__steps{
+
+
+            .steps{
+                .step{
+
+                    align-items: center;
+                    gap: 30px;
+
+                    .step__photo{
+                        width: 350px;
+                        height: 200px;
+                    }
+
+                    .describe{
+                        width: 45%;
+                        gap: 25px;
+
+                        .step__title{
+                            margin: 0;
+                            font-size: 18px;
+                        }
+                    }
+                }
+            }
+
+        }
+
+    }
+
+}
+
+@media(max-width : 768px){
+
+    .support{
+
+        .support__steps{
+
+
+            .steps{
+
+                gap: 20px;
+
+                .step{
+
+                    align-items: center;
+                    gap: 30px;
+
+                    .step__photo{
+                        width: 250px;
+                        height: 150px;
+                    }
+
+                    .describe{
+                        width: 45%;
+                        gap: 25px;
+
+                        .step__title{
+                            margin: 0;
+                            font-size: 18px;
+                        }
+                    }
+                }
+            }
+
+        }
+
+    }
+
+}
+
+@media(max-width : 600px){
+
+    .support{
+
+        .support__steps{
+
+            .step__header{
+                font-size: 26px;
+                line-height: 34px;
+            }
+
+
+            .steps{
+
+                gap: 40px;
+
+                .step{
+
+                    align-items: flex-start;
+                    gap: 30px;
+                    flex-direction: column-reverse;
+
+                    &:nth-child( 2n ){
+
+                        flex-direction: column-reverse;
+                    }
+
+                    .step__photo{
+                        width: 350px;
+                        height: 200px;
+                    }
+
+                    .describe{
+                        width: 100%;
+                        gap: 10px;
+                        padding: 0;
+
+                        .step__title{
+                            margin: 0;
+                            font-size: 18px;
+                        }
+
+                        .step__number{
+                            font-size: 16px;
+                        }
+
+                        .step__link{
+                            display: none;
+                        }
+                    }
+                }
+            }
+
+        }
+
+    }
+
+}
+
+
+@media(max-width : 768px){
+
+    .support{
+
+        .button{
+            margin: 50px auto;
+        }
+
+        .support__lasric{
+
+            width: 90%;
+
+        }
+
+    }
+
+}
+
+@media(max-width : 700px){
+
+    .support{
+
+        .downloadModal{
+
+            display: flex;
+            align-items: flex-end;
+
+            .downlaodInfo{
+
+                border-radius: 10px 10px 0 0;
+                padding-bottom: 70px;
+
+            }
+
+        }
+
+    }
+
+}
+
+@media(max-width : 500px){
+
+    .support{
+
+        .button{
+            margin: 50px auto;
+        }
+
+        .support__lasric{
+
+            width: 100%;
+            height: 300px;
+
+            .play{
+                height: 100px;
+                width: 100px;
+            }
+
+        }
+
+        .downloadModal{
+
+            display: flex;
+            align-items: flex-end;
+
+            .downlaodInfo{
+
+                padding: 30px;
+                border-radius: 10px 10px 0 0;
+                padding-bottom: 70px;
+
+                .closeNav{
+                    right: 20px;
+                    top: 20px;
+                }
+
+                .downloadHead{
+                    width: 80%;
+                    line-height: 30px;
+                }
+
+                p{
+                    width: 100%;
+                }
+
+                .downloadFiles{
+
+                    margin-top: 50px;
+
+                    .arr{
+                        display: none;
+                    }
+                }
+
+            }
+
+        }
+
+        .support__steps{
+
+            .steps{
+
+                .step{
+
+                    align-items: flex-start;
+                    gap: 30px;
+                    flex-direction: column-reverse;
+
+                    &:nth-child( 2n ){
+
+                        flex-direction: column-reverse;
+                    }
+
+                    .step__photo{
+                        width: 100%;
+                        height: 200px;
+                    }
+
+                    .describe{
+                        width: 100%;
+                        gap: 10px;
+                        padding: 0;
+
+                        .step__title{
+                            margin: 0;
+                            font-size: 18px;
+                        }
+
+                        .step__number{
+                            font-size: 16px;
+                        }
+
+                        .step__link{
+                            display: none;
+                        }
+                    }
+                }
+            }
+
+        }
+
+    }
+
+}

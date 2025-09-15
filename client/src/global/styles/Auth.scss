@@ -1,0 +1,426 @@
+.authComponent{
+    background-color: #fff;
+    display: flex;
+
+    .loadingLoader{
+        height: 100vh;
+        width: 100%;
+        background-color: rgba(28, 63, 58, .8);
+        position: fixed;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .platform{
+        width: 35%;
+        height: 100vh;
+        background-color: #1C3F3A;
+        color: #fff;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        p{
+            width: 60%;
+            font-size: 22px;
+            font-weight: 550;
+            line-height: 32px;
+            display: flex;
+            flex-direction: column;
+            margin-top: -50px;
+
+            .quote{
+                height: 100px;
+                width: 100px;
+                overflow: hidden;
+                margin-bottom: 70px;
+
+                img{
+                    width: 100%;
+                    height: 100%;
+                    object-fit: cover;
+                    opacity: .1;
+                }
+            }
+        }
+
+        .authr{
+
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+            margin-top: 120px;
+
+            .nameArthr{
+
+                font-size: 15px;
+                line-height: 24px;
+
+            }
+
+            .posi{
+                font-size: 13px;
+                line-height: 19px;
+                font-weight: 300;
+                color: #bebebe;
+            }
+        }
+    }
+}
+
+.Register{
+
+    display: flex;
+    flex-direction: column;
+    margin: 0;
+    width: 65%;
+    padding: 50px 70px;
+
+    .headerAuth{
+        display: flex;
+        align-items: center;
+        margin-bottom: 50px;
+        justify-content: space-between;
+
+        .back{
+            font-size: 11px;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            font-weight: 500;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            cursor: pointer;
+            color: #000;
+
+            &:hover{
+                color: #00B44E;
+            }
+
+            .icon{
+                font-size: 10px;
+                padding-top: 2px;
+            }
+        }
+    }
+
+    .logoPin{
+        width: 120px;
+        height: 50px;
+
+        img{
+            height: 100%;
+            width: 100%;
+            object-fit: contain;
+        }
+    }
+
+    .authTitle{
+
+        text-align: left;
+        
+        p{
+            font-size: 24px;
+            font-weight: 600;
+            margin-bottom: 10px;
+        }
+
+        .di{
+            font-size: 16px;
+            color: #777;
+            width: 40%;
+            line-height: 24px;
+        }
+    }
+
+    .success{
+        position: fixed;
+        top: -19%;
+        left: 0;
+        height: 100vh;
+        width: 100%;
+        z-index: 999999;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background-color: rgba(255, 255, 255, 0.801);
+    }
+
+    .title-tag{
+
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+        width: 40%;
+        
+        h1{
+            font-size: 21px;
+            letter-spacing: -1px;
+            font-family: 'Code Next', sans-serif;
+            margin-left: 30px;
+        }
+    }
+
+
+    form{
+
+        width: 500px;
+        overflow: hidden;
+        margin-top: 50px;
+        display: flex;
+        flex-direction: column;
+        gap: 13px;
+
+
+        input, textarea{
+            width: 100%;
+            border: none;
+            background: transparent;
+            outline: none;
+            height: 100%;
+            padding: 17px 15px;
+            border-radius: 8px;
+            border: 1px solid #e1e1e1;
+        }
+
+        input::placeholder{
+            font-size: 12px;
+        }
+
+        input:focus input::placeholder{
+            color: aqua;
+        }
+
+        .icon-form{
+            width: 50px;
+            height: 25px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 18px;
+            color: #140876;
+            border-right: 1px solid rgba($color: #140876, $alpha: .2);
+            margin-right: 10px;
+
+        }
+
+        .field-data{
+
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+
+            .inputArea{
+                width: 100%;
+                display: flex;
+                flex-direction: column;
+
+                label{
+                    font-size: 13px;
+                    font-weight: 600;
+                    margin: 0;
+                    margin-bottom: 10px;
+                }
+            }
+
+            .half-type{
+                display: flex;
+                width: 49%;
+                align-items: center;
+            }
+
+            .full-type{
+                width: 100%;
+                display: flex;
+                align-items: center;
+            }
+
+            .half-type, .full-type{
+                border-radius: 5px;
+            }
+
+            &.field-idea{
+                flex-direction: column;
+                align-items: flex-start;
+                font-family: 'Poppins', sans-serif;
+                margin-bottom: 50px;
+
+                .question-tag{
+                    margin-bottom: 15px;
+                    color: #140876;
+                    font-weight: bold;
+                    font-size: 15px;
+
+                    span{
+                        font-weight: 300;
+                        color: #999;
+                    }
+                    
+                }
+
+                .upload{
+                    cursor: pointer;
+                    padding: 16px 25px !important;
+                    font-size: 14px;
+                }
+
+                textarea{
+
+                    padding: 10px 15px;
+                    font-size: 14px;
+                    line-height: 24px;
+                    height: max-content;
+                    resize: none;
+
+                }
+
+            }
+        }
+
+        .submit-btn{
+            background-color: #00B44E;
+            padding: 15px 0;
+            border-radius: 5px;
+            text-align: center;
+            font-family: 'Poppins', sans-serif;
+            font-weight: bold;
+            color: #fff;
+            font-size: 15px;
+            cursor: pointer;
+            width: 100%;
+            border: none;
+            margin-top: 5px;
+        }
+
+        .login-trigger{
+
+            margin-top: 30px;
+            font-size: 14px;
+            color: #777;
+
+            .login-btn{
+                text-decoration: none;
+                color: #00B44E;
+                font-weight: 600;
+            }
+
+        }
+    }
+}
+
+
+@media (max-width : 1200px){
+
+    .authComponent{
+
+        .platform{
+            width: 40%;
+        }
+
+    }
+
+}
+
+@media (max-width : 1000px){
+
+    .authComponent{
+
+        .platform{
+            width: 45%;
+
+            p{
+                width: 80%;
+            }
+        }
+
+    }
+
+}
+
+@media (max-width : 950px){
+
+    .authComponent{
+
+        .platform{
+            width: 50%;
+            display: none;
+
+            p{
+                width: 80%;
+            }
+        }
+
+        .Register{
+
+            padding: 40px;
+            width: 600px;
+            margin: 0 auto;
+
+            .authTitle{
+                .di{
+                    width: 100%;
+                }
+            }
+
+            form{
+                width: 100%;
+            }
+
+        }
+
+    }
+
+}
+
+@media (max-width : 600px){
+
+    .authComponent{
+
+        .Register{
+
+            padding: 40px 20px;
+            width: 100%;
+            margin: 0 auto;
+
+            .authTitle{
+                .di{
+                    width: 100%;
+                }
+            }
+
+            form{
+                width: 100%;
+
+                input::placeholder{
+                    font-size: normal !important;
+                }
+            }
+
+        }
+
+    }
+
+}
+
+.brand{
+
+    label{
+
+        display: flex;
+        align-items: center;
+        gap: 4px;
+
+        .linkedinIcon{
+            width: 15px;
+            height: 15px;
+            overflow: hidden;
+        
+            img{
+                width: 100%;
+                height: 100%;
+                object-fit: contain;
+            }
+        }
+    }
+}
