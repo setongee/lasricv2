@@ -104,7 +104,7 @@ return (
 
                     <div className="auth-area">
 
-                        <Link to="/apply" className="act-btn" >Apply for <strong> C{cohort}. </strong> </Link>
+                        <Link to="/apply" className="act-btn" >Apply for <strong> Cohort {cohort}. </strong> </Link>
 
                         <div className="line-div"></div>
 
@@ -194,7 +194,7 @@ return (
 
                                         <div className="auth-area">
 
-                                            <Link to="/apply" className="act-btn" >Apply for <strong> C{cohort}. </strong> </Link>
+                                            <Link to="/apply" className="act-btn" >Apply for <strong> Cohort {cohort}. </strong> </Link>
 
                                             <div className="line-div"></div>
 

@@ -17,7 +17,7 @@ export default function Offers({photo, title, subtitle}) {
 
             <div className="offer__content__subtitle"> {subtitle} </div>
 
-            <div className="learn">Learn More <div className="arrow__go"><ArrowUpRight/></div> </div>
+            {/* <div className="learn">Learn More <div className="arrow__go"><ArrowUpRight/></div> </div> */}
 
         </div>
 

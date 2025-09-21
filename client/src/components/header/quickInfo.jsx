@@ -8,7 +8,7 @@ export default function QuickInfo({cohort}) {
 
   return (
     
-    <div className="quickInfo"> Build the next big idea, <span onClick={ () => navigate('/apply') } > Apply for C{cohort} now! </span> </div>
+    <div className="quickInfo"> Build the next big idea, <span onClick={ () => navigate('/apply') } > Apply for Cohort {cohort} now! </span> </div>
 
   )
 }

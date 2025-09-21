@@ -74,12 +74,12 @@ const Landing = () => {
                     <div className="cards__group">
 
                         <div className="card">
-                            <p>94</p>
+                            <p>117</p>
                             <span> Total Number of  Funded Individuals </span>
                         </div>
 
                         <div className="card">
-                            <p> N344m+ </p>
+                            <p> N803m+ </p>
                             <span> Total amount funded so far combined </span>
                         </div>
 
@@ -96,7 +96,7 @@ const Landing = () => {
 
             {/* call for applications */}
 
-            <Container>
+            {/* <Container>
 
                 <div className="appCardBody">
                     {
@@ -111,7 +111,7 @@ const Landing = () => {
                     }
                 </div>
 
-            </Container>
+            </Container> */}
 
             {/* what we offer / services */}
 
