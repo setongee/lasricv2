@@ -91,6 +91,8 @@ import Verify from '../pages/dashboard/verify';
 import { useUser } from '../stores/user.store';
 import ProtectedRoute from '../components/ProtectedRoute/ProtectedRoute';
 import { useEffect } from 'react';
+import ResetPassword from '../pages/auth/resetPassword';
+import VerifyResetPassword from '../pages/auth/resetPassword-verify';
 
 const Router = ({user, cohort}) => {
 
@@ -113,6 +115,8 @@ const Router = ({user, cohort}) => {
                 <Route path = 'about' element = {<About/>} />
                 <Route path = 'register' element = {<Register/>} />
                 <Route path = 'login' element = { <Login/> } />
+                <Route path = 'reset-password' element = { <ResetPassword/> } />
+                <Route path = 'reset-password/reset' element = { <VerifyResetPassword/> } />
                 <Route path = 'apply' element = {<Callup/>} />
                 <Route path = 'blog' element = {<Blog/>} />
                 <Route path = 'blog/:id' element = {<BlogView/>} />

@@ -77,11 +77,28 @@
     width: 65%;
     padding: 50px 70px;
 
+    &.central{
+        margin: 0 auto;
+        align-items: center;
+
+        .authTitle{
+            display: flex;
+            align-items: center;
+            flex-direction: column;
+
+            .di{
+                width: 100%;
+                text-align: center;
+            }
+        }
+    }
+
     .headerAuth{
         display: flex;
         align-items: center;
         margin-bottom: 50px;
         justify-content: space-between;
+        width: 100%;
 
         .back{
             font-size: 11px;
@@ -119,6 +136,7 @@
     .authTitle{
 
         text-align: left;
+        width: 100%;
         
         p{
             font-size: 24px;
@@ -422,5 +440,62 @@
                 object-fit: contain;
             }
         }
+    }
+}
+
+.reset-psw{
+    font-weight: 600;
+    font-size: 14px;
+    color: #00B44E;
+    margin-top: 14px;
+    text-align: right;
+    cursor: pointer;
+    margin-bottom: 5px;
+}
+
+
+.errorLink{
+    width: 100%;
+    height: 500px;
+    padding: 30px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;                        
+    justify-content: center;
+
+    .error-body{
+    width: 600px;
+    background-color: #f9f9f9;
+    border: 1px solid #e0e0e0;
+    padding: 30px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border-radius:20px;
+
+    a{
+        background-color: #131313;
+        color: #fff;
+        padding: 14px 20px;
+        border-radius: 10px;
+        margin-top: 30px;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+    }
+
+    }
+
+    .error-logo{
+        margin-bottom: 40px;
+    }
+
+    p{
+        font-weight: 500;
+        font-size: 18px;
+        margin-bottom: 5px;
+        text-align: center;
+        width: 55%;
     }
 }

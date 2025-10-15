@@ -92,6 +92,7 @@ const Login = () => {
                             <div className="inputArea">
                                 <label htmlFor="">Password</label>
                                 <input type="password" placeholder = 'Enter Password' required onChange = {(e) => setPassword(e.target.value)}/>
+                                <div className="reset-psw" onClick={() => navigate('/reset-password')}>Forgot Password?</div>
                             </div>
 
                         </div>

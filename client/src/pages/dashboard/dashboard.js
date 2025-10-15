@@ -18,6 +18,7 @@ import { getAwardeeBank } from '../../api/firebase/admin/admin_applications';
 import Container from '../../components/container/container';
 import { Check, CheckCircle } from 'iconoir-react';
 import { SignOutClient } from '../../middleware/authToken';
+import pattern from './pattern.jpg'
 
 const Dashboard = ({currentUser}) => {
 
@@ -221,10 +222,43 @@ const Dashboard = ({currentUser}) => {
                             <div className="main-site">
                                 <Link to = '/' className='dashboard_link'> <i className="fi fi-rr-computer"></i> Main Site  </Link>
                             </div>
-                            
-                            <div className="account_arr">Dashboard</div>
+
+                            <div className="account_arr"onClick={ () => SignOutClient() } > Sign Out</div>
                             <div className="line-arr"></div>
-                            <div className="applyNow" onClick={ () => SignOutClient() } > Sign Out </div>
+
+                            {
+                                currentUser?.verified && <Link
+                                to="/apply"
+                                style={{
+                                    padding: "22px",
+                                    borderRadius: "150px",
+                                    backgroundColor: "#00B44E",
+                                    textAlign: "center",
+                                    color: "#fff",
+                                    display: "flex",
+                                    alignItems: "center",
+                                    justifyContent: "center",
+                                    gap: "7px",
+                                    fontWeight: 500,
+                                    fontSize: "14px",
+                                    lineHeight: "5px",
+                                    textDecoration: "none", // optional to remove underline
+                                }}
+                                >
+                                Apply for <strong>Cohort 7</strong>
+                            </Link>
+                            }
+                            
+                            <div className="profile_details" style={{marginLeft : "10px"}}>
+                                    
+                                    <div className="displayPhoto">
+                                        {
+                                            currentUser?.photo ?
+                                            <img src={currentUser?.photo} alt="" />
+                                            : <p>{currentUser?.firstname?.split('')[0]}{currentUser?.lastname?.split('')[0]}</p>
+                                        }
+                                    </div>
+                                </div>
 
                         </div>
 
@@ -236,25 +270,22 @@ const Dashboard = ({currentUser}) => {
 
                         <div className="topBar">
 
-
                             <p>Welcome Back!</p>
 
                             <div className="profileJoint">
                                 <h1>Hello {currentUser?.firstname || ''} {currentUser?.lastname || ''}</h1> 
                                 
-                                <div className="profile_details">
-                                    {
-                                        currentUser?.verified ? <div className="verifiedAccount"> <CheckCircle fontSize={12}/> Verified</div> : (<div className="linkedin" onClick={verifyLinkedin}>Verify Linkedin</div>)
-                                    }
-                                    <div className="displayPhoto">
-                                        {
-                                            currentUser?.photo ?
-                                            <img src={currentUser?.photo} alt="" />
-                                            : <p>{currentUser?.firstname?.split('')[0]}{currentUser?.lastname?.split('')[0]}</p>
-                                        }
-                                    </div>
-                                </div>
+                                
                             </div>
+
+                           {
+                            !currentUser?.verified && ( <div className="linkedinDesign">
+                                <img src={pattern} alt="" />
+                                <p>Don't miss out! Verify your profile with linkedin to apply for <strong><span>Cohort 7</span></strong></p>
+                            <div className="linkedin" onClick={verifyLinkedin}>Verify Linkedin</div>
+
+                            </div>)
+                           }
 
                         </div>
 

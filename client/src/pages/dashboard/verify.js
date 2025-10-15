@@ -23,6 +23,9 @@ export default function Verify() {
     if(!code) return;
     
     const profileUrl = axios.get(`https://lasric-server-jjqhn.ondigitalocean.app/api/v2/auth/linkedin/${code}`)
+
+    // const profileUrl = axios.get(`http://localhost:8080/api/v2/auth/linkedin/${code}`)
+
     profileUrl
     .then(e => {
       
@@ -54,7 +57,7 @@ export default function Verify() {
           })
 
           .catch(()=>{
-            alert("something went wrong, is ti here try again!");
+            alert("something went wrong, try again!");
             navigate('/dashboard')
           })
 
