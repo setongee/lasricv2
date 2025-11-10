@@ -17,6 +17,7 @@ import { useLocation } from 'react-router-dom';
 import { getCurrentCohortNumber } from './api/firebase/admin/admin_applications';
 import { useUser } from './stores/user.store';
 import { useCohortNumber } from './stores/cohort.store';
+import Banner from './components/Banner/Banner';
 
 
 function App() {
@@ -24,6 +25,7 @@ function App() {
   const currentUser = useUser(state=>state.currentUser);
   const cohort = useCohortNumber(state=>state.cohort);
   const setCohortNumber = useCohortNumber(state=>state.setCohortNumber);
+  const [close, setClose] = useState(true);
 
   const auth = getAuth();
   const {pathname} = useLocation()
@@ -43,7 +45,16 @@ function App() {
     getCurrentCohortNumber()
     .then( res => setCohortNumber(res[0].present) )
 
+    const session = window.sessionStorage.getItem('banner')
+    !session ? setClose(false) : setClose(JSON.parse(session));
+
   }, []);
+
+  const onClose = (value) => {
+
+    window.sessionStorage.setItem('banner', true);
+    setClose(value)
+  }
 
   return (
     
@@ -51,12 +62,16 @@ function App() {
 
       <div className={`fixedClass client_${pathname.split('/')[1]}`}>
         
+        {
+          !close && <Banner onClose={onClose}/>
+        }
         <QuickInfo cohort = {cohort} />
         <Header user = {currentUser} cohort = {cohort} />
 
       </div>
 
       <Router user = {currentUser} cohort = {cohort} />
+
       
       <Footer/>
 

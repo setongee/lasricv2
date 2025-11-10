@@ -1,6 +1,7 @@
 import React from 'react'
 import './contact.scss'
 import Container from '../../components/container/container'
+import {SendMailSolid} from 'iconoir-react'
 
 export default function Contact() {
 
@@ -18,7 +19,7 @@ export default function Contact() {
 
             </div>
 
-            <div className="lasric__form">
+            {/* <div className="lasric__form">
 
                 <form>
 
@@ -55,6 +56,18 @@ export default function Contact() {
 
                 </form>
 
+            </div> */}
+
+            <div className="contact-email flex">
+                <a href="mailto:lasric2@lagosstate.gov.ng" className="mailItem">
+                    <SendMailSolid className='icon-mail'/>
+                    lasric2@lagosstate.gov.ng
+                </a>
+
+                <a href="mailto:lasricouncil@lagosstate.gov.ng" className="mailItem">
+                    <SendMailSolid className='icon-mail'/>
+                    lasricouncil@lagosstate.gov.ng
+                </a>
             </div>
 
         </Container>

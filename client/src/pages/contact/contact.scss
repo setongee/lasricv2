@@ -1,3 +1,29 @@
+
+.contact-email{
+
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    align-items: flex-start;
+    justify-content: center;
+    margin: 50px 0;
+
+    .mailItem{
+        display: flex;
+        gap: 10px;
+        color: #131313;
+        padding: 10px 20px;
+        background-color: #fff;
+        border: 1px solid #e1e1e1;
+        align-items: center;
+        font-weight: 500;
+
+        .icon-mail{
+            font-size: 14px;
+        }
+    }
+}
+
 .lasric__form{
 
     display: flex;
