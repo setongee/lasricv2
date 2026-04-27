@@ -1,12 +1,17 @@
 import React, { useState, useEffect } from "react";
 import AdminTable from "./adminTables";
 import { CSVLink } from "react-csv";
-import { getCurrentCohortNumber } from "../api/firebase/admin/admin_applications";
+import {
+  getCurrentCohortNumber,
+  getPassmark,
+} from "../api/firebase/admin/admin_applications";
 
 const Applications = () => {
-  const [filterContent, setFilterContent] = useState("submitted");
   const [track, setTrack] = useState("all");
   const [cohort, setCohort] = useState(0);
+  const [filterContent, setFilterContent] = useState("submitted");
+  const [searchTerm, setSearchTerm] = useState("");
+  const [passmark, setPassMark] = useState(0);
 
   const headers = [
     { label: "First Name", key: "firstname" },
@@ -35,97 +40,60 @@ const Applications = () => {
   };
 
   useEffect(() => {
-    switch (filterContent) {
-      case "submitted":
-        var act = document.querySelector(".filters .active");
-
-        if (act !== null) {
-          act.classList.remove("active");
-          document.querySelector(".submitted").classList.add("active");
-        } else {
-          document.querySelector(".submitted").classList.add("active");
-        }
-
-        break;
-
-      case "pending":
-        var act = document.querySelector(".filters .active");
-
-        if (act !== null) {
-          act.classList.remove("active");
-          document.querySelector(".pending").classList.add("active");
-        } else {
-          document.querySelector(".pending").classList.add("active");
-        }
-
-        break;
-
-      case "graded":
-        var act = document.querySelector(".filters .active");
-
-        if (act !== null) {
-          act.classList.remove("active");
-          document.querySelector(".graded").classList.add("active");
-        } else {
-          document.querySelector(".graded").classList.add("active");
-        }
-
-        break;
-
-      case "interview":
-        var act = document.querySelector(".filters .active");
-
-        if (act !== null) {
-          act.classList.remove("active");
-          document.querySelector(".interview").classList.add("active");
-        } else {
-          document.querySelector(".interview").classList.add("active");
-        }
-
-        break;
-
-      default:
-        break;
-    }
-
+    getPassmark().then((e) => setPassMark(e.grade));
     getCurrentCohortNumber().then((e) => setCohort(e[0].present));
-  }, [filterContent]);
+  }, []);
 
   return (
     <div className="overviewAdmin applicationsPage">
       <div className="tableInfo">
         <div className="filters">
           <li
-            className="submitted active"
+            className={`submitted ${filterContent === "submitted" && "active-application"}`}
             onClick={() => setFilterContent("submitted")}
           >
             All Applications
           </li>
-          <li className="pending" onClick={() => setFilterContent("pending")}>
+          <li
+            className={`pending ${filterContent === "pending" && "active-application"}`}
+            onClick={() => setFilterContent("pending")}
+          >
             Pending
           </li>
-          <li className="graded" onClick={() => setFilterContent("graded")}>
+          <li
+            className={`graded ${filterContent === "graded" && "active-application"}`}
+            onClick={() => setFilterContent("graded")}
+          >
             Graded
           </li>
           <li
-            className="interview"
+            className={`interview ${filterContent === "interview" && "active-application"}`}
             onClick={() => setFilterContent("interview")}
           >
             Interview Bucket
           </li>
         </div>
 
-        <form className="filterTrack">
-          <select
-            name="filter"
-            id="filter"
-            onChange={(e) => setTrack(e.target.value)}
-          >
-            <option value="all"> All Applications </option>
-            <option value="stem"> Stem Applications </option>
-            <option value="innovation"> Innovation Applications </option>
-            <option value="research"> Research Applications </option>
-          </select>
+        <div className="filterTrack">
+          <div className="searchBar">
+            <input
+              type="text"
+              placeholder="Search by applicant name..."
+              value={searchTerm}
+              onChange={(e) => setSearchTerm(e.target.value)}
+              className="searchInput"
+            />
+            <select
+              name="filter"
+              id="filter"
+              onChange={(e) => setTrack(e.target.value)}
+            >
+              <option value="all"> All Applications </option>
+              <option value="stem"> Stem Applications </option>
+              <option value="innovation"> Innovation Applications </option>
+              <option value="research"> Research Applications </option>
+            </select>
+          </div>
 
           <CSVLink
             data={dataExport}
@@ -134,12 +102,18 @@ const Applications = () => {
             className="btn_download"
           >
             {" "}
-            Export
+            Export Applications
           </CSVLink>
-        </form>
+        </div>
       </div>
 
-      <AdminTable check={filterContent} track={track} exportData={DataExport} />
+      <AdminTable
+        check={filterContent}
+        track={track}
+        exportData={DataExport}
+        searchTerm={searchTerm}
+        passmark={passmark}
+      />
     </div>
   );
 };

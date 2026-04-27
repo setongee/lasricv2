@@ -1,128 +1,87 @@
-import React from 'react'
-import './marquee.scss'
+import React from "react";
+import "./marquee.scss";
 
 // founders
-import thinkbikes from '../../assets/marquee/think.png'
-import moon from '../../assets/marquee/moon.png'
-import lanadek from '../../assets/marquee/lonadek.png'
-import shifa from '../../assets/marquee/Yusufbilesanmi.png'
-import farmz2u from '../../assets/marquee/farmz2u.png'
-import pricepally from '../../assets/marquee/pricepally.png'
-import adire from '../../assets/marquee/adire.png'
-import nja from '../../assets/marquee/9iija.png'
+import thinkbikes from "../../assets/marquee/think.png";
+import moon from "../../assets/marquee/moon.png";
+import lanadek from "../../assets/marquee/lonadek.png";
+import shifa from "../../assets/marquee/Yusufbilesanmi.png";
+import farmz2u from "../../assets/marquee/farmz2u.png";
+import pricepally from "../../assets/marquee/pricepally.png";
+import adire from "../../assets/marquee/adire.png";
+import nja from "../../assets/marquee/9iija.png";
 
 export default function Marquee() {
-
+  const founders = [
+    {
+      name: "Tolulope Olukokun",
+      company: "ThinkBikes",
+      image: thinkbikes,
+      companyUrl: "https://thinkbikes.com",
+    },
+    {
+      name: "Ibilola Amao",
+      company: "Lonadek",
+      image: lanadek,
+      companyUrl: "https://lonadek.com",
+    },
+    {
+      name: "Yusuf Bilesami",
+      company: "Shifa Technologies",
+      image: shifa,
+      companyUrl: "https://shifatech.com",
+    },
+    {
+      name: "Aisha Raheem",
+      company: "Farmz2u",
+      image: farmz2u,
+      companyUrl: "https://farmz2u.com",
+    },
+    {
+      name: "Luther Lawoyin",
+      company: "Pricepally",
+      image: pricepally,
+      companyUrl: "https://pricepally.com",
+    },
+    {
+      name: "Cynthia Asije",
+      company: "Adire Lounge",
+      image: adire,
+      companyUrl: "https://adirelounge.com",
+    },
+    {
+      name: "Micheal Osumune",
+      company: "Moon Innovations",
+      image: moon,
+      companyUrl: "https://mooninnovations.com",
+    },
+    {
+      name: "Titilope Adewusi",
+      company: "9ijaKids",
+      image: nja,
+      companyUrl: "https://9ijakids.com",
+    },
+  ];
   return (
-
     <div className="marquee">
+      {founders.map((founder, index) => (
+        <a
+          href={founder.companyUrl}
+          target="_Blank"
+          className={`marquee__card delay${index + 1}`}
+          key={index}
+        >
+          <div className="m__image">
+            {" "}
+            <img src={founder.image} alt={founder.name} />{" "}
+          </div>
 
-        <div className="marquee__card delay1">
-
-            <div className="m__image"> <img src={thinkbikes} alt="Tolulope Olukokun - CEO ThinkBikes" /> </div>
-            
-            <div className="card__text ">
-
-                <p> Tolulope Olukokun </p>
-                <span> ThinkBikes </span>
-
-            </div>
-
-        </div>
-
-        <div className="marquee__card delay2">
-
-            <div className="m__image"> <img src={lanadek} alt="Ibilola Amao" /> </div>
-            
-            <div className="card__text ">
-
-                <p> Ibilola Amao </p>
-                <span> Lonadek </span>
-
-            </div>
-
-        </div>
-
-        <div className="marquee__card delay3">
-
-            <div className="m__image"> <img src={shifa} alt="Yusuf Bilesami" /> </div>
-            
-            <div className="card__text ">
-
-                <p> Yusuf Bilesami </p>
-                <span> Shifa Technologies </span>
-
-            </div>
-
-        </div>
-
-        <div className="marquee__card delay4">
-            
-            <div className="m__image"> <img src={farmz2u} alt="Aisha Raheem" /> </div>
-            
-            <div className="card__text ">
-
-                <p> Aisha Raheem </p>
-                <span> Farmz2u </span>
-
-            </div>
-
-        </div>
-
-
-        <div className="marquee__card delay5">
-
-            <div className="m__image"> <img src={pricepally} alt="Luther Lawoyin" /> </div>
-            
-            <div className="card__text ">
-
-                <p> Luther Lawoyin </p>
-                <span> Pricepally </span>
-                
-            </div>
-
-        </div>
-
-        <div className="marquee__card delay6">
-
-            <div className="m__image"> <img src={adire} alt="Cynthia Asije" /> </div>
-            
-            <div className="card__text ">
-
-                <p> Cynthia Asije </p>
-                <span> Adire Lounge </span>
-                
-            </div>
-
-        </div>
-
-        <div className="marquee__card delay7">
-
-            <div className="m__image"> <img src={moon} alt="Micheal Osumune" /> </div>
-            
-            <div className="card__text ">
-
-                <p> Micheal Osumune</p>
-                <span> Moon Innovations </span>
-
-            </div>
-
-        </div>
-
-        <div className="marquee__card delay8">
-
-            <div className="m__image"> <img src={nja} alt="Titilope Adewusi" /> </div>
-            
-            <div className="card__text ">
-
-                <p> Titilope Adewusi </p>
-                <span> 9ijaKids </span>
-                
-            </div>
-
-        </div>
-
+          <div className="card__text ">
+            <p> {founder.name} </p>
+            <span> {founder.company} </span>
+          </div>
+        </a>
+      ))}
     </div>
-
-  )
+  );
 }

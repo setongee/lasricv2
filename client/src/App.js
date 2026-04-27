@@ -1,84 +1,85 @@
-import './App.css';
-import React, {useState, useEffect} from 'react';
+import "./App.css";
+import React, { useState, useEffect } from "react";
+import { Toaster } from "react-hot-toast";
 
 // styles
-import './global/styles/pageBrief.scss';
+import "./global/styles/pageBrief.scss";
 
 //components
-import Header from './components/header/header';
-import Router from './routes/routes';
-import Footer from './components/footer/footer';
+import Header from "./components/header/header";
+import Router from "./routes/routes";
+import Footer from "./components/footer/footer";
 
 import { getAuth, onAuthStateChanged } from "firebase/auth";
 import { doc, getDoc, onSnapshot } from "firebase/firestore";
-import { db } from './api/firebase/config';
-import QuickInfo from './components/header/quickInfo';
-import { useLocation } from 'react-router-dom';
-import { getCurrentCohortNumber } from './api/firebase/admin/admin_applications';
-import { useUser } from './stores/user.store';
-import { useCohortNumber } from './stores/cohort.store';
-import Banner from './components/Banner/Banner';
-
+import { db } from "./api/firebase/config";
+import QuickInfo from "./components/header/quickInfo";
+import { useLocation } from "react-router-dom";
+import { getCurrentCohortNumber } from "./api/firebase/admin/admin_applications";
+import { useUser } from "./stores/user.store";
+import { useCohortNumber } from "./stores/cohort.store";
+import Banner from "./components/Banner/Banner";
 
 function App() {
+  console.log("reCAPTCHA key:", process.env.REACT_APP_RECAPTCHA_SITE_KEY);
+  console.log("env:", process.env.NODE_ENV);
 
-  const currentUser = useUser(state=>state.currentUser);
-  const cohort = useCohortNumber(state=>state.cohort);
-  const setCohortNumber = useCohortNumber(state=>state.setCohortNumber);
+  const currentUser = useUser((state) => state.currentUser);
+  const cohort = useCohortNumber((state) => state.cohort);
+  const setCohortNumber = useCohortNumber((state) => state.setCohortNumber);
   const [close, setClose] = useState(true);
 
   const auth = getAuth();
-  const {pathname} = useLocation()
-  
+  const { pathname } = useLocation();
 
   useEffect(() => {
-    
-    window.scroll(0,0);
-    document.body.style.overflowY = "visible"
-    if(pathname === '/apply') document.body.style.overflowY = "hidden"
-
+    window.scroll(0, 0);
+    document.body.style.overflowY = "visible";
+    if (pathname === "/apply") document.body.style.overflowY = "hidden";
   }, [pathname]);
 
-
   useEffect(() => {
-        
-    getCurrentCohortNumber()
-    .then( res => setCohortNumber(res[0].present) )
+    getCurrentCohortNumber().then((res) => setCohortNumber(res[0].present));
 
-    const session = window.sessionStorage.getItem('banner')
+    const session = window.sessionStorage.getItem("banner");
     !session ? setClose(false) : setClose(JSON.parse(session));
-
   }, []);
 
   const onClose = (value) => {
-
-    window.sessionStorage.setItem('banner', true);
-    setClose(value)
-  }
+    window.sessionStorage.setItem("banner", true);
+    setClose(value);
+  };
 
   return (
-    
     <div className="app">
-
-      <div className={`fixedClass client_${pathname.split('/')[1]}`}>
-        
-        {
-          !close && <Banner onClose={onClose}/>
-        }
-        <QuickInfo cohort = {cohort} />
-        <Header user = {currentUser} cohort = {cohort} />
-
+      <div className={`fixedClass client_${pathname.split("/")[1]}`}>
+        {!close && <Banner onClose={onClose} />}
+        <QuickInfo cohort={cohort} />
+        <Header user={currentUser} cohort={cohort} />
       </div>
 
-      <Router user = {currentUser} cohort = {cohort} />
+      <Router user={currentUser} cohort={cohort} />
 
-      
-      <Footer/>
+      <Footer />
 
+      <Toaster
+        position="top-right"
+        containerStyle={{
+          top: "100px" /* Account for header height */,
+          right: "0px",
+        }}
+        toastOptions={{
+          style: {
+            fontSize: "14px",
+            padding: "12px 16px",
+            borderRadius: "4px",
+            zIndex: 1000000,
+            boxShadow: "0 4px 12px rgba(0, 0, 0, 0.15)",
+          },
+        }}
+      />
     </div>
-
   );
-
 }
 
 export default App;

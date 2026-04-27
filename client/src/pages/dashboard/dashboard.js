@@ -20,6 +20,10 @@ import { Check, CheckCircle } from "iconoir-react";
 import { SignOutClient } from "../../middleware/authToken";
 import pattern from "./pattern.jpg";
 import { useCohortNumber } from "../../stores/cohort.store";
+import ReportsTable from "../../components/reports/ReportsTable";
+import AddReportModal from "../../components/reports/AddReportModal";
+import EditReportModal from "../../components/reports/EditReportModal";
+import ViewReportModal from "../../components/reports/ViewReportModal";
 
 const Dashboard = ({ currentUser }) => {
   let navigate = useNavigate();
@@ -45,6 +49,13 @@ const Dashboard = ({ currentUser }) => {
 
   const [ME, setME] = useState([]);
 
+  // Reports state
+  const [showAddModal, setShowAddModal] = useState(false);
+  const [showEditModal, setShowEditModal] = useState(false);
+  const [showViewModal, setShowViewModal] = useState(false);
+  const [selectedReport, setSelectedReport] = useState(null);
+  const [reportsRefresh, setReportsRefresh] = useState(0);
+
   const bannerB = () => {
     setShowModal(false);
 
@@ -59,7 +70,9 @@ const Dashboard = ({ currentUser }) => {
     localStorage.setItem("banner", true);
   };
 
-  useEffect(async () => {
+  useEffect(() => {
+    if (!currentUser || !currentUser.uid) return;
+
     if (localStorage.getItem("banner")) {
       setShowModal(false);
     } else {
@@ -68,29 +81,38 @@ const Dashboard = ({ currentUser }) => {
 
     setUser(currentUser);
 
-    const citiesRef = collection(
-      db,
-      "applications_data",
-      `cohort${cohort}`,
-      "applications",
-    );
-    const q = query(citiesRef, where("userid", "==", currentUser.uid));
-    const querySnapshot = await getDocs(q);
+    const fetchData = async () => {
+      try {
+        const citiesRef = collection(
+          db,
+          "applications_data",
+          `cohort${cohort}`,
+          "applications",
+        );
+        const q = query(citiesRef, where("userid", "==", currentUser.uid));
+        const querySnapshot = await getDocs(q);
 
-    var apps = [];
+        var apps = [];
+        querySnapshot.forEach((doc) => {
+          apps.push(doc.data());
+        });
 
-    querySnapshot.forEach((doc) => {
-      apps.push(doc.data());
-      console.log(doc);
-    });
+        appsStatistics(apps);
+      } catch (error) {
+        console.error("Error fetching applications:", error);
+      }
 
-    appsStatistics(apps);
-    console.log("apps", apps);
+      try {
+        const res = await getAwardeeBank(currentUser.uid);
+        setValid(res);
+      } catch (error) {
+        // User is not an awardee — this is expected for most users
+        setValid([]);
+      }
+    };
 
-    getAwardeeBank(currentUser.uid).then((res) => {
-      setValid(res);
-    });
-  }, []);
+    fetchData();
+  }, [currentUser]);
 
   const appsStatistics = async (data) => {
     const dataFeed = {
@@ -120,8 +142,6 @@ const Dashboard = ({ currentUser }) => {
     await setStatistics(dataFeed);
   };
 
-  console.log(statistics);
-
   const progressbar = keyframes`
     from {
         width : 0%;
@@ -148,6 +168,34 @@ const Dashboard = ({ currentUser }) => {
   };
 
   const verifyLinkedin = () => navigate("/dashboard/verify");
+
+  // Reports handlers
+  const handleAddReport = () => {
+    setShowAddModal(true);
+  };
+
+  const handleEditReport = (report) => {
+    setSelectedReport(report);
+    setShowEditModal(true);
+  };
+
+  const handleViewReport = (report) => {
+    setSelectedReport(report);
+    setShowViewModal(true);
+  };
+
+  const handleReportSuccess = () => {
+    setReportsRefresh((prev) => prev + 1);
+    setShowAddModal(false);
+    setShowEditModal(false);
+  };
+
+  const handleCloseModals = () => {
+    setShowAddModal(false);
+    setShowEditModal(false);
+    setShowViewModal(false);
+    setSelectedReport(null);
+  };
 
   return (
     <div className="dashboard">
@@ -244,7 +292,7 @@ const Dashboard = ({ currentUser }) => {
                     textDecoration: "none", // optional to remove underline
                   }}
                 >
-                  Apply for <strong>Cohort 7</strong>
+                  Apply for <strong>Cohort {cohort}</strong>
                 </Link>
               )}
 
@@ -281,7 +329,7 @@ const Dashboard = ({ currentUser }) => {
                     Don't miss out! Verify your profile with linkedin to apply
                     for{" "}
                     <strong>
-                      <span>Cohort 7</span>
+                      <span>Cohort {cohort}</span>
                     </strong>
                   </p>
                   <div className="linkedin" onClick={verifyLinkedin}>
@@ -290,7 +338,6 @@ const Dashboard = ({ currentUser }) => {
                 </div>
               )}
             </div>
-
             {valid.length ? (
               <div className="submitME">
                 <div className="infoMen">
@@ -314,7 +361,6 @@ const Dashboard = ({ currentUser }) => {
                 }
               </div>
             ) : null}
-
             <div className="statBar">
               <div className="status">
                 <div className="star-head"> Applications</div>
@@ -351,9 +397,22 @@ const Dashboard = ({ currentUser }) => {
                 <div className="value-star">0</div>
               </div>
             </div>
+            {/* reports */}
+            {valid?.length > 0 && (
+              <div className="dashboard-reports">
+                <div className="reports-section">
+                  <ReportsTable
+                    uid={currentUser?.uid}
+                    onAddReport={handleAddReport}
+                    onEditReport={handleEditReport}
+                    onViewReport={handleViewReport}
+                    key={reportsRefresh}
+                  />
+                </div>
+              </div>
+            )}
 
             {/* lower statistics area */}
-
             <div className="lower_stat">
               <div className="application_section">
                 <div className="pending_applicatons">
@@ -505,6 +564,28 @@ const Dashboard = ({ currentUser }) => {
       </Container>
 
       <Outlet />
+
+      {/* Reports Modals */}
+      <AddReportModal
+        isOpen={showAddModal}
+        onClose={handleCloseModals}
+        uid={currentUser?.uid}
+        onSuccess={handleReportSuccess}
+      />
+
+      <EditReportModal
+        isOpen={showEditModal}
+        onClose={handleCloseModals}
+        report={selectedReport}
+        uid={currentUser?.uid}
+        onSuccess={handleReportSuccess}
+      />
+
+      <ViewReportModal
+        isOpen={showViewModal}
+        onClose={handleCloseModals}
+        report={selectedReport}
+      />
     </div>
   );
 };

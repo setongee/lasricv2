@@ -3,6 +3,7 @@ import {
   createUserWithEmailAndPassword,
   signInWithEmailAndPassword,
 } from "firebase/auth";
+import { getFunctions, httpsCallable } from "firebase/functions";
 import {
   doc,
   setDoc,
@@ -11,6 +12,8 @@ import {
   query,
   getDocs,
   where,
+  deleteField,
+  updateDoc,
 } from "firebase/firestore";
 import { db } from "./config";
 import { data } from "./new-data";
@@ -23,13 +26,11 @@ export const setDocument = async (
   email,
   phone,
   type,
-  password,
-  linkedinProfile
+  linkedinProfile,
 ) => {
   await setDoc(doc(db, "users", uid), {
     lastname,
     firstname,
-    password,
     email,
     phone,
     uid,
@@ -68,60 +69,71 @@ const sendLasricEmail = async (email, firstname, lastname, password, track) => {
   }
 };
 
-export const setCouncilDocument = async (uid, data) => {
-  await setDoc(doc(db, "council", uid), data);
-  SignInUser("admin@lasric.lagosstate.gov.ng", "123456");
-};
+// export const setCouncilDocument = async (uid, data) => {
+//   await setDoc(doc(db, "council", uid), data);
+//   SignInUser("admin@lasric.lagosstate.gov.ng", "123456");
+// };
 
-export const createCouncilMember = (data) => {
-  const {
-    email,
-    password,
-    lastname,
-    firstname,
-    phone = "08133211658",
-    linkedinProfile,
-  } = data;
+// export const createCouncilMember = (data) => {
+//   const {
+//     email,
+//     password,
+//     lastname,
+//     firstname,
+//     phone = "08133211658",
+//     linkedinProfile,
+//   } = data;
 
-  const auth = getAuth();
+//   const auth = getAuth();
 
-  console.log(email, password, lastname, phone);
+//   createUserWithEmailAndPassword(auth, email, password)
+//     .then(async (userCredential) => {
+//       const user = userCredential.user;
 
-  createUserWithEmailAndPassword(auth, email, password)
-    .then(async (userCredential) => {
-      const user = userCredential.user;
+//       await setDocument(
+//         user.uid,
+//         lastname,
+//         firstname,
+//         email,
+//         phone,
+//         "council",
+//         linkedinProfile,
+//       ).then(() => {
+//         setCouncilDocument(user.uid, { ...data, uid: user.uid });
+//       });
+//     })
+//     .catch((error) => {
+//       const errorCode = error.code;
+//       const errorMessage = error.message;
+//       console.log(errorCode, errorMessage);
 
-      await setDocument(
-        user.uid,
-        lastname,
-        firstname,
-        email,
-        phone,
-        "council",
-        password,
-        linkedinProfile
-      ).then(() => {
-        setCouncilDocument(user.uid, { ...data, uid: user.uid });
-      });
-    })
-    .catch((error) => {
-      const errorCode = error.code;
-      const errorMessage = error.message;
-      console.log(errorCode, errorMessage);
+//       alert("Sorry this email address is already in use.");
+//     });
+// };
 
-      alert("Sorry this email address is already in use.");
-    });
-};
+// const SignInUser = (email, password) => {
+//   const auth = getAuth();
+//   signInWithEmailAndPassword(auth, email, password);
+// };
 
-const SignInUser = (email, password) => {
-  const auth = getAuth();
-  signInWithEmailAndPassword(auth, email, password);
+// new function to create council member
+export const createCouncilMember = async (data) => {
+  const functions = getFunctions();
+  const createCouncil = httpsCallable(functions, "createCouncilMember");
+
+  try {
+    const result = await createCouncil(data);
+    return result.data;
+  } catch (error) {
+    console.error("Error creating council member:", error);
+    alert("Sorry this email address is already in use.");
+  }
 };
 
 export const getCouncilData = async () => {
   const fetchUsers = query(
     collection(db, "council"),
-    where("internal", "==", true)
+    where("internal", "==", true),
   );
 
   const querySnapshot = await getDocs(fetchUsers);
@@ -140,7 +152,7 @@ export const setAdminDocument = async (
   lastname,
   firstname,
   email,
-  type
+  type,
 ) => {
   await setDoc(doc(db, "admin", uid), {
     lastname: lastname,
@@ -190,4 +202,32 @@ export const getDataExport = async (data) => {
   });
 
   console.log(user);
+};
+
+// field cleanup function
+export const cleanupPlainTextPasswords = async () => {
+  const auth = getAuth();
+  console.log("Current user:", auth.currentUser?.email);
+  try {
+    // Clean users collection
+    const usersSnapshot = await getDocs(collection(db, "users"));
+    const userUpdates = usersSnapshot.docs.map((document) =>
+      updateDoc(doc(db, "users", document.id), { password: deleteField() }),
+    );
+    await Promise.all(userUpdates);
+    console.log(`Cleaned ${usersSnapshot.docs.length} user documents`);
+
+    // Clean council collection
+    const councilSnapshot = await getDocs(collection(db, "council"));
+    const councilUpdates = councilSnapshot.docs.map((document) =>
+      updateDoc(doc(db, "council", document.id), { password: deleteField() }),
+    );
+    await Promise.all(councilUpdates);
+    console.log(`Cleaned ${councilSnapshot.docs.length} council documents`);
+
+    return "Done — all plain text passwords removed";
+  } catch (error) {
+    console.error("Cleanup error:", error);
+    throw error;
+  }
 };

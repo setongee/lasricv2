@@ -1,0 +1,17 @@
+/* Edit Report Modal - Reusing Add Report Modal styles */
+@import url('./AddReportModal.css');
+
+/* Edit-specific styles */
+.current-file-info {
+  font-size: 12px;
+  color: #6b7280;
+  margin-bottom: 8px;
+  padding: 8px 12px;
+  background: #f9fafb;
+  border-radius: 6px;
+  border: 1px solid #e5e7eb;
+}
+
+.current-file-info strong {
+  color: #374151;
+}

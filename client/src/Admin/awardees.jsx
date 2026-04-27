@@ -10,6 +10,10 @@ import {
 } from "../api/firebase/admin/admin_applications";
 import { useNavigate } from "react-router-dom";
 import { CSVLink } from "react-csv";
+import SethAnimation from "../components/lottie/seth-animation";
+import { GoogleDocs, Plus } from "iconoir-react";
+import { getAuth, onAuthStateChanged } from "firebase/auth";
+import { notify } from "../utils/toast";
 
 export default function Awardees() {
   const [potentialAwardees, setPotentialAwardees] = useState([]);
@@ -25,8 +29,11 @@ export default function Awardees() {
   const [dataExport, setDataExport] = useState([]);
   const [deleteStatus, setDeleteStatus] = useState(false);
   const [deleteComplete, setDeleteComplete] = useState(false);
+  const [isDeleting, setIsDeleting] = useState(false);
+  const [cohort, setCohort] = useState(0);
 
   const navigate = useNavigate();
+  const auth = getAuth();
 
   const openPotentialAwardeesModaL = () => {
     setPotentialAwardeesModal(true);
@@ -117,48 +124,69 @@ export default function Awardees() {
 
   const batchRemoveAwardees = async () => {
     try {
+      setIsDeleting(true);
       const deletePromises = selectedAwardees.map((uid) => removeAwardee(uid));
       await Promise.all(deletePromises);
 
+      // Remove deleted items from UI
+      setAwardees((prevAwardees) =>
+        prevAwardees.filter(
+          (awardee) => !selectedAwardees.includes(awardee.data.uid),
+        ),
+      );
+
+      notify.success(
+        `${selectedAwardees.length} ${selectedAwardees.length > 1 ? "awardees" : "awardee"} removed successfully`,
+      );
+
       setDeleteComplete(true);
       setSelectedAwardees([]);
-      setDeleteStatus(!deleteStatus);
-
-      setTimeout(() => {
-        setDeleteComplete(false);
-      }, 3000);
+      setIsDeleting(false);
     } catch (error) {
-      console.error("Error batch removing awardees:", error);
+      console.error("Error deleting awardees:", error);
+      setIsDeleting(false);
     }
   };
 
   useEffect(() => {
-    setLoaded(true);
-    document.querySelector("body").style.overflow = "hidden";
+    const unsubscribe = onAuthStateChanged(auth, (user) => {
+      if (user) {
+        getCurrentCohortNumber().then((e) => setCohort(e[0].present));
 
-    getPotentiaalApps().then((e) => {
-      console.log(e);
-      setPotentialAwardees(e);
+        setLoaded(true);
+        document.querySelector("body").style.overflow = "hidden";
+
+        getPotentiaalApps().then((e) => {
+          setPotentialAwardees(e);
+        });
+
+        getAwardees()
+          .then((e) => {
+            setAwardees(e);
+            setLoaded(false);
+            document.querySelector("body").style.overflow = "visible";
+          })
+          .catch(() => {
+            setLoaded(false);
+            document.querySelector("body").style.overflow = "visible";
+          });
+
+        getSubmittedAwardeesBank().then((res) => setDataExport(res));
+      } else {
+        // Redirect or handle unauthenticated state
+        navigate("/login");
+      }
     });
 
-    getAwardees()
-      .then((e) => {
-        setAwardees(e);
-
-        setTimeout(() => {
-          setLoaded(false);
-          document.querySelector("body").style.overflow = "visible";
-        }, 2000);
-      })
-      .catch(() => {
-        setLoaded(false);
-        document.querySelector("body").style.overflow = "visible";
-      });
-
-    //getAwardeeBank()
-
-    getSubmittedAwardeesBank().then((res) => setDataExport(res));
-  }, [addStatus, potentialAwardeesModal, deleteStatus]);
+    return () => unsubscribe();
+  }, [
+    addStatus,
+    potentialAwardeesModal,
+    deleteStatus,
+    deleteComplete,
+    auth,
+    navigate,
+  ]);
 
   //csv download
 
@@ -234,14 +262,15 @@ export default function Awardees() {
 
   return (
     <div className="awardeesArea">
-      {loaded ? (
-        <div className="loadingScreen">
-          <div className="load">
-            <img
-              src="https://firebasestorage.googleapis.com/v0/b/lasricv2.appspot.com/o/fragments%2FLoader%20(2).gif?alt=media&token=b7eb2ebe-43fd-4ac0-8921-6949ab880178"
-              alt="loading..."
-            />
-          </div>
+      {isDeleting || loaded ? (
+        <div className="loadingData">
+          <SethAnimation
+            jsonSrc={
+              "https://assets4.lottiefiles.com/packages/lf20_jusuh7t5.json"
+            }
+            lottieStyle={{ width: "400px", height: "400px" }}
+            speed={"1"}
+          />
         </div>
       ) : null}
 
@@ -283,7 +312,7 @@ export default function Awardees() {
                   </div>
                 </div>
 
-                <div className="tableHeader_hl headingTop">
+                <div className="tableHeader_hl headingTop addModalHl">
                   <div className="heading_awardee tiktok"></div>
                   <div className="heading_awardee fullname">Fullname</div>
                   <div className="heading_awardee comp">Company</div>
@@ -309,7 +338,7 @@ export default function Awardees() {
                         <div
                           className="initA"
                           style={{
-                            backgroundColor: `${res.data.track === "stem" ? "#c293ff" : res.data.track === "innovation" ? "#c1deff" : "#a49eff"}`,
+                            backgroundColor: `${res.data.track === "stem" ? "#037B9C" : res.data.track === "innovation" ? "#9C6E03" : "#419C03"}`,
                           }}
                         >
                           {" "}
@@ -335,8 +364,6 @@ export default function Awardees() {
       ) : null}
 
       <div className="header_awardees">
-        <h1> Awardees </h1>
-
         <div className="buttonsZone">
           {selectedAwardees.length > 0 ? (
             <div className="deleteSelectedAwardees">
@@ -349,24 +376,24 @@ export default function Awardees() {
             </div>
           ) : (
             <>
-              <div className="addAwardee downloadX">
-                {" "}
-                <CSVLink
-                  data={dataExport}
-                  headers={headers}
-                  filename={`LASRIC 2023 Applications_Export.csv`}
-                  className="btn_download"
-                >
-                  {" "}
-                  Export Responses{" "}
-                </CSVLink>{" "}
-              </div>
               <div
                 className="addAwardee"
                 onClick={() => openPotentialAwardeesModaL()}
               >
                 {" "}
-                Add Awardee{" "}
+                <Plus /> Add Awardee{" "}
+              </div>
+              <div className="addAwardee downloadX">
+                {" "}
+                <CSVLink
+                  data={dataExport}
+                  headers={headers}
+                  filename={`LASRIC-cohort-${cohort}-Awardees-Data.csv`}
+                  className=""
+                  style={{ display: "flex", alignItems: "center", gap: 8 }}
+                >
+                  <GoogleDocs /> Export Responses{" "}
+                </CSVLink>{" "}
               </div>
             </>
           )}
@@ -377,11 +404,6 @@ export default function Awardees() {
         <div className="list_awardees_here">
           {awardees.length ? (
             <div className="addAwardeesP awardee_real">
-              {deleteComplete ? (
-                <div className="deleteSuccessMessage">
-                  Successfully deleted {selectedAwardees.length} awardee(s)!
-                </div>
-              ) : null}
               <div className="highlight">
                 <div className="tableHeader_hl headingTop">
                   <div className="heading_awardee checkbox">#</div>
@@ -412,7 +434,7 @@ export default function Awardees() {
                         <div
                           className="initA"
                           style={{
-                            backgroundColor: `${res.data.track === "stem" ? "#c293ff" : res.data.track === "innovation" ? "#c1deff" : "#a49eff"}`,
+                            backgroundColor: `${res.data.track === "stem" ? "#037B9C" : res.data.track === "innovation" ? "#9C6E03" : "#419C03"}`,
                           }}
                         >
                           {" "}
